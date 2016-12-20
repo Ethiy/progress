@@ -1,0 +1,9 @@
+# Ignore File
+
+# Intermediate files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz
