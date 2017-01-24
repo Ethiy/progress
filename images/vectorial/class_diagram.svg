@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="1160" version="1.1" width="1475" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="120" stroke="#ffffff" stroke-width="1" width="163" x="235" y="542"/>
+<rect fill="none" height="120" stroke="#000000" stroke-width="1" width="163" x="235" y="542"/>
+<text font-family="Dialog" font-size="12" x="241" y="555">
+Filehandler&lt;Lib3dsFile&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="163" x="235" y="565"/>
+<text font-family="Dialog" font-size="12" x="239" y="579">
+file : Lib3dsFile*</text>
+<text font-family="Dialog" font-size="12" x="239" y="595">
+filepath : Path</text>
+<text font-family="Dialog" font-size="12" x="239" y="611">
+modes</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="163" x="235" y="621"/>
+<text font-family="Dialog" font-size="12" x="239" y="635">
+read() : ShadowMesh</text>
+<text font-family="Dialog" font-size="12" x="239" y="651">
+write(ShadowMesh)</text>
+<rect fill="#ffffff" height="120" stroke="#ffffff" stroke-width="1" width="163" x="59" y="542"/>
+<rect fill="none" height="120" stroke="#000000" stroke-width="1" width="163" x="59" y="542"/>
+<text font-family="Dialog" font-size="12" x="72" y="555">
+Filehandler&lt;fstream&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="163" x="59" y="565"/>
+<text font-family="Dialog" font-size="12" x="63" y="579">
+file : fstream</text>
+<text font-family="Dialog" font-size="12" x="63" y="595">
+filepath : Path</text>
+<text font-family="Dialog" font-size="12" x="63" y="611">
+modes</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="163" x="59" y="621"/>
+<text font-family="Dialog" font-size="12" x="63" y="635">
+read() : ShadowMesh</text>
+<text font-family="Dialog" font-size="12" x="63" y="651">
+write(ShadowMesh)</text>
+<rect fill="#ffffff" height="120" stroke="#ffffff" stroke-width="1" width="152" x="659" y="286"/>
+<rect fill="none" height="120" stroke="#000000" stroke-width="1" width="152" x="659" y="286"/>
+<text font-family="Dialog" font-size="12" x="694" y="299">
+ShadowMesh</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="659" y="309"/>
+<text font-family="Dialog" font-size="12" x="663" y="323">
+name : String</text>
+<text font-family="Dialog" font-size="12" x="663" y="339">
+bounding_box : Bbox</text>
+<text font-family="Dialog" font-size="12" x="663" y="355">
+faces</text>
+<text font-family="Dialog" font-size="12" x="663" y="371">
+points</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="659" y="381"/>
+<text font-family="Dialog" font-size="12" x="663" y="395">
+to_3ds()</text>
+<rect fill="#ffffff" height="104" stroke="#ffffff" stroke-width="1" width="168" x="947" y="110"/>
+<rect fill="none" height="104" stroke="#000000" stroke-width="1" width="168" x="947" y="110"/>
+<text font-family="Dialog" font-size="12" x="1016" y="123">
+Face</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="168" x="947" y="133"/>
+<text font-family="Dialog" font-size="12" x="951" y="147">
+vertices_number : Integer</text>
+<text font-family="Dialog" font-size="12" x="951" y="163">
+points</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="168" x="947" y="173"/>
+<text font-family="Dialog" font-size="12" x="951" y="187">
+invert_orientation()</text>
+<text font-family="Dialog" font-size="12" x="951" y="203">
+to_3ds()</text>
+<rect fill="#ffffff" height="69" stroke="#ffffff" stroke-width="1" width="129" x="947" y="286"/>
+<rect fill="none" height="69" stroke="#000000" stroke-width="1" width="129" x="947" y="286"/>
+<text font-family="Dialog" font-size="12" x="952" y="299">
+map&lt;size_t, Face&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="129" x="947" y="309"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="129" x="947" y="331"/>
+<polyline fill="none" points="1011,286 1011,213" stroke="#000000" stroke-width="1"/>
+<polygon fill="#000000" points="1011,286 1006,276 1011,266 1016,276" stroke="#000000" stroke-width="1"/>
+<polygon fill="none" points="1011,286 1006,276 1011,266 1016,276" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1014" y="244">
+map</text>
+<text font-family="Dialog" font-size="12" x="989" y="276">
+1</text>
+<text font-family="Dialog" font-size="12" x="983" y="227">
+1..*</text>
+<rect fill="#ffffff" height="83" stroke="#ffffff" stroke-width="1" width="161" x="155" y="358"/>
+<rect fill="none" height="83" stroke="#000000" stroke-width="1" width="161" x="155" y="358"/>
+<text font-family="Dialog" font-size="12" x="161" y="390">
+FileHandler&lt;structure&gt;</text>
+<text font-family="Dialog" font-size="12" x="187" y="372">
+&lt;&lt;interface&gt;&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="161" x="155" y="400"/>
+<text font-family="Dialog" font-size="12" x="159" y="414">
+read() : ShadowMesh</text>
+<text font-family="Dialog" font-size="12" x="159" y="430">
+write(ShadowMesh)</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="542" y2="537"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="532" y2="527"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="522" y2="517"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="512" y2="507"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="502" y2="497"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="492" y2="487"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="482" y2="477"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="472" y2="467"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="462" y2="457"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="452" y2="447"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="283" x2="283" y1="442" y2="440"/>
+<polygon fill="#ffffff" points="283,440 290,452 276,452" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="283,440 290,452 276,452" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="290" y="504">
+&lt;&lt;realize&gt;&gt;</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="542" y2="537"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="532" y2="527"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="522" y2="517"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="512" y2="507"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="502" y2="497"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="492" y2="487"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="482" y2="477"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="472" y2="467"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="462" y2="457"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="452" y2="447"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="187" x2="187" y1="442" y2="440"/>
+<polygon fill="#ffffff" points="187,440 194,452 180,452" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="187,440 194,452 180,452" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="100" y="503">
+&lt;&lt;realize&gt;&gt;</text>
+<polyline fill="none" points="947,346 810,346" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="862" y="341">
+faces</text>
+<text font-family="Dialog" font-size="12" x="928" y="341">
+1</text>
+<text font-family="Dialog" font-size="12" x="821" y="341">
+1</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="131" x="1155" y="350"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="131" x="1155" y="350"/>
+<text font-family="Dialog" font-size="12" x="1160" y="363">
+map&lt;size_t, Point&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="131" x="1155" y="373"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="131" x="1155" y="394"/>
+<polyline fill="none" points="1155,366 810,366" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="940" y="385">
+points</text>
+<text font-family="Dialog" font-size="12" x="1137" y="383">
+1</text>
+<text font-family="Dialog" font-size="12" x="824" y="386">
+1</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="66" x="1195" y="214"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="66" x="1195" y="214"/>
+<text font-family="Dialog" font-size="12" x="1212" y="227">
+Point</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1195" y="237"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1195" y="258"/>
+<polyline fill="none" points="1228,350 1228,280" stroke="#000000" stroke-width="1"/>
+<polygon fill="#000000" points="1228,350 1223,340 1228,330 1233,340" stroke="#000000" stroke-width="1"/>
+<polygon fill="none" points="1228,350 1223,340 1228,330 1233,340" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1233" y="321">
+map</text>
+<text font-family="Dialog" font-size="12" x="1207" y="333">
+1</text>
+<text font-family="Dialog" font-size="12" x="1200" y="307">
+1..*</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="133" x="1315" y="142"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="133" x="1315" y="142"/>
+<text font-family="Dialog" font-size="12" x="1320" y="155">
+map&lt;size_t, size_t&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="133" x="1315" y="165"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="133" x="1315" y="186"/>
+<polyline fill="none" points="1114,158 1315,158" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1174" y="152">
+points</text>
+<text font-family="Dialog" font-size="12" x="1125" y="153">
+1</text>
+<text font-family="Dialog" font-size="12" x="1296" y="153">
+1</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="66" x="1347" y="14"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="66" x="1347" y="14"/>
+<text font-family="Dialog" font-size="12" x="1363" y="27">
+size_t</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1347" y="37"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1347" y="58"/>
+<polyline fill="none" points="1380,142 1380,80" stroke="#000000" stroke-width="1"/>
+<polygon fill="#000000" points="1380,142 1375,132 1380,122 1385,132" stroke="#000000" stroke-width="1"/>
+<polygon fill="none" points="1380,142 1375,132 1380,122 1385,132" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1291" y="111">
+map</text>
+<text font-family="Dialog" font-size="12" x="1359" y="134">
+1</text>
+<text font-family="Dialog" font-size="12" x="1351" y="95">
+1..*</text>
+<polyline fill="none" points="315,414 435,414 435,350 659,350" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="647" x2="659" y1="357" y2="350"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="647" x2="659" y1="343" y2="350"/>
+<text font-family="Dialog" font-size="12" x="435" y="345">
+Input/Output</text>
+<text font-family="Dialog" font-size="12" x="330" y="408">
+1</text>
+<text font-family="Dialog" font-size="12" x="318" y="428">
+File handler</text>
+<text font-family="Dialog" font-size="12" x="631" y="342">
+0..*</text>
+<text font-family="Dialog" font-size="12" x="559" y="368">
+Buffer structure</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="128" x="155" y="718"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="128" x="155" y="718"/>
+<text font-family="Dialog" font-size="12" x="160" y="731">
+map&lt;string, bool&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="128" x="155" y="741"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="128" x="155" y="762"/>
+<polyline fill="none" points="397,606 467,606 467,702 227,702 227,718" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="384" y="718">
+modes</text>
+<polyline fill="none" points="59,606 27,606 27,686 211,686 211,718" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="35" y="703">
+modes</text>
+<rect fill="#ffffff" height="104" stroke="#ffffff" stroke-width="1" width="152" x="667" y="614"/>
+<rect fill="none" height="104" stroke="#000000" stroke-width="1" width="152" x="667" y="614"/>
+<text font-family="Dialog" font-size="12" x="728" y="627">
+Brick</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="667" y="637"/>
+<text font-family="Dialog" font-size="12" x="671" y="651">
+name : String</text>
+<text font-family="Dialog" font-size="12" x="671" y="667">
+bounding_box : Bbox</text>
+<text font-family="Dialog" font-size="12" x="671" y="683">
+surface</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="667" y="693"/>
+<text font-family="Dialog" font-size="12" x="671" y="707">
+set_color(Color)</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="80" x="971" y="630"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="80" x="971" y="630"/>
+<text font-family="Dialog" font-size="12" x="976" y="643">
+Polyhedron</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="80" x="971" y="653"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="80" x="971" y="674"/>
+<polyline fill="none" points="818,678 971,678" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="860" y="673">
+surface</text>
+<text font-family="Dialog" font-size="12" x="828" y="674">
+1</text>
+<text font-family="Dialog" font-size="12" x="953" y="674">
+1</text>
+<polyline fill="none" points="723,405 723,614" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="716" x2="723" y1="602" y2="614"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="730" x2="723" y1="602" y2="614"/>
+<text font-family="Dialog" font-size="12" x="737" y="422">
+1</text>
+<text font-family="Dialog" font-size="12" x="556" y="420">
+Face-based data structure</text>
+<text font-family="Dialog" font-size="12" x="738" y="606">
+1</text>
+<text font-family="Dialog" font-size="12" x="526" y="603">
+Hafledge-based data structure</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="213" x="1083" y="774"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="213" x="1083" y="774"/>
+<text font-family="Dialog" font-size="12" x="1088" y="787">
+Polygon&lt;Projection_traist_xy_3&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="213" x="1083" y="797"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="213" x="1083" y="818"/>
+<rect fill="#ffffff" height="72" stroke="#ffffff" stroke-width="1" width="134" x="1083" y="894"/>
+<rect fill="none" height="72" stroke="#000000" stroke-width="1" width="134" x="1083" y="894"/>
+<text font-family="Dialog" font-size="12" x="1103" y="907">
+FaceProjection</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="134" x="1083" y="917"/>
+<text font-family="Dialog" font-size="12" x="1087" y="931">
+plane</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="134" x="1083" y="941"/>
+<text font-family="Dialog" font-size="12" x="1087" y="955">
+get_height() : Float</text>
+<polyline fill="none" points="1158,894 1158,840" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="1158,840 1165,852 1151,852" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="1158,840 1165,852 1151,852" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1084" y="872">
+Inheritance</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="66" x="1395" y="894"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="66" x="1395" y="894"/>
+<text font-family="Dialog" font-size="12" x="1410" y="907">
+Plane</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1395" y="917"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="66" x="1395" y="938"/>
+<polyline fill="none" points="1216,930 1395,930" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1285" y="925">
+plane</text>
+<text font-family="Dialog" font-size="12" x="1227" y="925">
+1</text>
+<text font-family="Dialog" font-size="12" x="1376" y="925">
+1</text>
+<rect fill="#ffffff" height="67" stroke="#ffffff" stroke-width="1" width="192" x="955" y="1078"/>
+<rect fill="none" height="67" stroke="#000000" stroke-width="1" width="192" x="955" y="1078"/>
+<text font-family="Dialog" font-size="12" x="960" y="1091">
+map&lt;size_t, FaceProjection&gt;</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="192" x="955" y="1101"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="192" x="955" y="1122"/>
+<polyline fill="none" points="1107,1078 1107,965" stroke="#000000" stroke-width="1"/>
+<polygon fill="#000000" points="1107,1078 1102,1068 1107,1058 1112,1068" stroke="#000000" stroke-width="1"/>
+<polygon fill="none" points="1107,1078 1102,1068 1107,1058 1112,1068" stroke="#000000" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="1110" y="1034">
+map</text>
+<text font-family="Dialog" font-size="12" x="1086" y="1061">
+1</text>
+<text font-family="Dialog" font-size="12" x="1079" y="995">
+0..*</text>
+<rect fill="#ffffff" height="104" stroke="#ffffff" stroke-width="1" width="152" x="675" y="894"/>
+<rect fill="none" height="104" stroke="#000000" stroke-width="1" width="152" x="675" y="894"/>
+<text font-family="Dialog" font-size="12" x="704" y="907">
+BrickProjection</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="675" y="917"/>
+<text font-family="Dialog" font-size="12" x="679" y="931">
+name : String</text>
+<text font-family="Dialog" font-size="12" x="679" y="947">
+facets_xy</text>
+<text font-family="Dialog" font-size="12" x="679" y="963">
+bounding_box : Bbox_2</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="152" x="675" y="973"/>
+<text font-family="Dialog" font-size="12" x="679" y="987">
+get_height() : Float</text>
+<polyline fill="none" points="955,1110 891,1110 891,942 826,942" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="838" x2="826" y1="935" y2="942"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="838" x2="826" y1="949" y2="942"/>
+<text font-family="Dialog" font-size="12" x="894" y="1050">
+facets_xy</text>
+<polyline fill="none" points="739,717 739,894" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="732" x2="739" y1="882" y2="894"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="746" x2="739" y1="882" y2="894"/>
+<text font-family="Dialog" font-size="12" x="742" y="810">
+Projection</text>
+<text font-family="Dialog" font-size="12" x="754" y="734">
+1</text>
+<text font-family="Dialog" font-size="12" x="677" y="736">
+3D object</text>
+<text font-family="Dialog" font-size="12" x="756" y="884">
+1</text>
+<text font-family="Dialog" font-size="12" x="635" y="884">
+Projection on XY</text>
+</svg>
