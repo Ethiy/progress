@@ -15,7 +15,7 @@
 
 \begin{document}
 	\begin{centering}
-		\large\textbf{Meeting Summary: 21/12/2016}\\
+		\large\textbf{Meeting Summary: 25/01/2017}\\
 		~\\
 		Oussama ENNAFII:
 		\normalsize MATIS | TITANE \\
@@ -23,7 +23,7 @@
 	\end{centering}
 	
 	~\\~\\
-	This summary reports the main resolutions taken during the progress meeting that took place in office \textbf{\#K316} in \textbf{12/21/2016}.
+	This summary reports the main resolutions taken during the progress meeting that took place in office \textbf{\#K316} in \textbf{01/25/2017}.
 	\section*{Logistics:}
 	Every one was present for this meeting.
 	\begin{itemize}
@@ -36,33 +36,29 @@
 	
 	We discussed: 
 	\begin{itemize}
-		\item[(i)] Data availability:
+		\item[(i)] Data issues:
 		\begin{itemize}
-			\item[-] The need for both MVS and LIDAR based DSM: we do not really need both for the moment. We can do with any one of both based on based availability,
-			\item[-] The need for oriented aerial images: we can use already available very high resolution ($resolution<0.25m$) OrthoImages. The oriented images can be added later to the pipeline since it can be fastidious to register images to each other;
+			\item[-] Get DSM and Orthoimages for the rest of the regions,
+			\item[-] The need for special application for client DSM data,
+			\item[-] The need for ground truths from IGN operators;
 		\end{itemize}
-		\item[(ii)] Feature descriptors:
+		\item[(ii)] Implementation issues:
 		\begin{itemize}
-			\item[-] The need to craft features specifically for each errors and set the vegetation occlusion aside for the moment,
-			\item[-] The need to start with MNS and 3D model comparison first for feature extraction,
-			\item[-] The feature extraction on aerial images are not yet mature: superpixelization and primitive detection may not be the best options to go for right now;
-		\end{itemize}
-		\item[(iii)] Implementation issues:
-		\begin{itemize}
-			\item[-] It is adament to finish this part as soon as possible.
+			\item[-] Getting more information on other format loaders from Antoine Lavenant,
+			\item[-] Finishing projection and pruning buildings and terrains,
+			\item[-] Visualizing attributes on 3D models and their projections,
+			\item[-] 2D visualization by just saving vectorial/raster images,
+			\item[-] Starting DSM manipulation,
+			\item[-] The choice of attributes will be discussed with the directors.
 		\end{itemize}
 	\end{itemize}
 	
 	\section*{Decisions:}
 	
-	Based on the discussion, It was decided to act on the following plan, as soon as I come back from the holidays (i.e. \textbf{01/09/2017})
+	Based on the discussion, It was decided to act on the following plan to present for the next meeting:
 	\begin{itemize}
-		\item[(i)] Ask Yannick Couturier for any DSM that he can get his hands on\\ while waiting for the official repository,\hfill {\color{RedOrange}[awaiting response]}
-		\item[(ii)] Ask Sebastien Giordano for contacts regarding the oriented \\aerial images,\hfill {\color{Red}[by 01/09/2017]}
-		\item[(iii)] Ask Cl\'ement Dechêne for DSM and/or Ortho data for Toulouse,\hfill {\color{Red}[by 01/09/2017]}
-		\item[(iv)] Explain the library structure using simple diagrams,\hfill {\color{Red}[by 01/10/2017]}
-		\item[(v)] Compute attributes per facet - contour length, slope, area\\ or projections for instance,\hfill {\color{Red}[by 01/18/2017]}
-		\item[(vi)] Visualize these attributes in 2D and in 3D.\hfill {\color{Red}[by 01/18/2017]}
+		\item[(i)] Integrating the rest of formats,\hfill {\color{RedOrange}[in process]}
+		\item[(ii)] Choose and Visualize attributes on 2D and in 3D.\hfill {\color{Red}[by 02/16/2017]}
 	\end{itemize}
 
 \end{document}
