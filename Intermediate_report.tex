@@ -59,27 +59,24 @@
 
 \begin{document}
 	\begin{centering}
-		\large\textbf{Progress Report: 16/02/2017}\\
+		\large\textbf{Progress Report: 16/03/2017}\\
 		~\\
 		Oussama ENNAFII:
 		\normalsize MATIS | TITANE \\
 		Directors: Cl\'ement Mallet \& Florent Lafarge \\
-	\end{centering}
+		Advisor: Arnaud Le Bris \\		
+	\end{centering} 
 
 
 	\section*{Data:}
 	
 	\begin{itemize}
-		\item TODO:
-			\begin{itemize}
-				\item[-] I need to adapt my script for other XML formats and for tar file handling,
-
-			\end{itemize}
-		\item Misc:
-			\begin{itemize}
-				\item[-] Corrected Bati3D: February, 9th 2017, appointement with Yannick Couturier (DPR): to correct models they subdivid building footprints.
-				\item[-] There is a new project producing hand annotated 3D models.
-			\end{itemize}
+		\item I am concentrating on Elancourt right now:
+		\begin{itemize}
+			\item[-] The area encompasses an industrial area with shoe box buildings, a residential area with a lot of building similarities and a very sparse urban areas;
+			\item[-] I have every data possible on the area: DSM, 3D building models and Orthoimages.
+		\end{itemize}
+		\item[-] I need to script a program to query data for a model from DSM and Orthoimage databases.
 	\end{itemize}
 	
 	\section*{Implementation:}
@@ -93,31 +90,83 @@
 				\item[-] Algorithms on bricks: area, contour length, affine transformations;
 				\item[-] Project 3D models in 2D;
 				\item[-] Occlusion management.
+				\item[-] Save projections into georeferenced vectorial images using GDAL;
+				\item[-] Rasterize projections for DSM comparison;
+				\item[-] Save raster projections into georeferenced images using GDAL;
+				\item[-] Stitch Meshes (in order to stitch rooftops to facets);
+				\item[-] Read Scene tree from XML file.
 			\end{itemize}
 		\item To add:
 			\begin{itemize}
-				\item[-] Project 3D model on Camera;
-				\item[-] Save projections into georeferenced vectorial images using GDAL;
-				\item[-] Rasterize projections for DSM comparison.
-			\end{itemize}
+				\item[-] Project 3D model on Camera.
+		\end{itemize}
 		\item To complete:
 			\begin{itemize}
-				\item[-] Stitch Meshes (in order to stitch rooftops to facets);
+				\item[-] Parallelize rasterization: a rasterization with pixel size equal to $0.2 m$ - to get a $1250 \times 1250$ raster image - takes around $35 min$ to compute!
 				\item[-] Improve logging.
 			\end{itemize}
 	\end{itemize}
 	
 	\begin{figure}[H]
 		\caption{\label{diag::class} New changes to the program architecture.}
-		\includegraphics[scale=.3]{images/vectorial/class_diagram.png}
+		\includegraphics[scale=.27]{images/vectorial/class_diagram.png}
 	\end{figure}
 	
 	\section*{Ideas:}
-	There is nothing to report from the last time.
+	I have identified two possible approaches in mind:
+	\begin{itemize}
+		\item DSM and Z profil local comparison:
+		\begin{itemize}
+			\item[-] Use computer vision feature detectos locally;
+			\item[-] compile error statics in histogram.
+		\end{itemize}
+		\item[-] Global building autoqualification:
+		\begin{itemize}
+			\item[-] Compute Laplace-Beltrami eigenvalues for each building: they are invariant to affine transforms;
+		\end{itemize}
+	\end{itemize}
 	
 	\section*{Results:}
-	There is no results to report for now.
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::snap} 3D Model sample.}
+			\includegraphics[scale=.3]{images/raster/elancourt/snapshot_100.png}
+		\end{center}
+	\end{figure}
 	
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::snap_top} Top view of the same area.}
+			\includegraphics[scale=.35]{images/raster/elancourt/snapshot_top01.png}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::dsm} Registred DSM corresponding to the area.}
+			\includegraphics[scale=.4]{images/raster/elancourt/dsm.png}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::a_dsm} The generated Z-profil.}
+			\includegraphics[scale=.4]{images/raster/elancourt/artificial_dsm.png}
+		\end{center}
+	\end{figure}
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::heatmap} Heat Map of the standard deviation of the artificial DSM and the IGN-DSM: Blue $< 1\%$ , Green $\approx 35\%$ and Red $\approx 65\%$.}
+			\includegraphics[scale=.3]{images/raster/elancourt/heat_map.png}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\begin{center}
+			\caption{\label{img::heatmap_shading} The previous Heat Map of the standard deviation of the artificial DSM and the IGN-DSM compared to the shaded DSM.}
+			\includegraphics[scale=.4]{images/raster/elancourt/shaded_dsm_heat.png}
+		\end{center}
+	\end{figure}
 	\section*{Attachments:}
 	
 	\begin{itemize}
