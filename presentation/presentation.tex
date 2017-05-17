@@ -8,20 +8,6 @@
 
 \include{includes/IGN}
 
-\usepackage[acronym]{glossaries}
-\newacronym{acr::sample}{Accro}{Acronym}
-
-
-\usepackage{amssymb}
-\usepackage{amsmath}
-
-\usepackage{mathtools}
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\norm{\vert\vert}{\vert\vert}
-\DeclarePairedDelimiter\abs{\vert}{\vert}
-
-\usepackage{hyperref}
-
 \usepackage{color}
 
 
@@ -115,88 +101,43 @@
 	\end{frame}
 	
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[Motivation]{Motivation:}
+	\section[Title]{Title:}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SOUS SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Dimensionality]{Curse of dimensionality:}
-\begin{frame}{Curse of dimensionality:}
-	Some issues to take into account:
-	\begin{itemize}
-		\item[-] Samples cover exponenetially less volume while dimension grows: you need at least $ \ceil*{\frac{1}{\epsilon}^d}$ points to cover uniformly a hypercube, with a side length of $1$, at distance $\epsilon$.
-		\item[-] Most intuition comming from low dimensions ( $ d < 2$ ) are not always valid: 
+	\subsection[SubTitle]{SubTitle:}
+	\begin{frame}{Frame:}
+		something here:
 		\begin{itemize}
-			\item[-] For instance, there is more volume in the corners of a hypercube rather than the center:
-			$$\frac{V(\mathbb{B}_{2}(r))}{V(\mathbb{B}_{\infty}(r))}\xrightarrow[d \to \infty]{} 0$$
-			\item[-] As the dimensionality increases, the less Euclidian distances are meaningful \cite{Domingos:2012:FUT:2347736.2347755}.
+			\item[-] Wow.
 		\end{itemize}
-	\end{itemize}
-\end{frame}
+	\end{frame}
 
+	\section[Title]{Title:}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[Scattering]{Scattering Transform:}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Properties]{Mathematical Properties:}
-\begin{frame}{Mathematical Properties:}
-	\begin{block}{Scattering invariance properties:}
+	\subsection[SubTitle]{SubTitle:}
+	\begin{frame}{Frame:}
+		something here:
 		\begin{itemize}
-			\item[(i).] Let $G$ be a group. We note the action of $g \in G $ on an image $x(u)$: $x_g(u) = x(g^{-1}.u)$. We want the representation $\Phi$ to be invariant to the action of $G$ \cite{sifre2013rotation} iif :
-			\begin{equation}
-				\Phi(x_g)=\Phi(x)
-			\end{equation}
-			\item[(ii).] We want the representation $\Phi$ to be contractive \cite{anden2014deep} in order to preserve similarity:
-			\begin{equation}
-				\norm*{\Phi(x)-\Phi(y)} \leq \norm*{x-y}
-			\end{equation}
-			\item[(iii).] We want the representation to be stable to small deformations \cite{mallat2012group}: for any diffeomorphism $\tau$ such that $ \norm*{\nabla \tau} < 1$, 
-			\begin{equation}
-				\norm*{\Phi(x) - \Phi(x_{\tau})} \leq C.\norm*{\nabla \tau}.\norm*{x}
-			\end{equation}
+			\item[-] Wow.
 		\end{itemize}
-	\end{block}
-\end{frame}
+	\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[Issues]{Practical Issues:}
+	\section[Title]{Title:}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Numerical]{Numerical considerations:}
-
-\begin{frame}{Numerical considerations:}
-	\begin{itemize}
-		\item[-] We scatter only along frequency decreasing paths $0<j_k\leq j_{k+1}<J$. Other coefficients are close to zero.
-		\item[-] Most of the energy of the transform is concentrated in the first layers:
-		\item[-] Implementations:
+	\subsection[SubTitle]{SubTitle:}
+	\begin{frame}{Frame:}
+		something here:
 		\begin{itemize}
-			\item[-] \href{https://github.com/scatnet/scatnet}{ScatNet available on GitHub} (Apache 2.0).
+			\item[-] Wow.
 		\end{itemize}
-	\end{itemize}
-\end{frame}
+	\end{frame}
 
-\subsection[Textures]{Texture discrimination:}
 
-\subsection[Comparison]{Comparison with :}
 
-	
 	
 	\section*{References}
 	\begin{frame}[allowframebreaks]{References}
 		\bibliographystyle{alpha}
-		\bibliography{references.bib}
+		\bibliography{../references.bib}
 	\end{frame}
 	
 	
