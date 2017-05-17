@@ -12,6 +12,8 @@
 *.nav
 *.snm
 *.toc
+*.fls
+*fdb_latexmk
 
 # Output
 *.pdf
