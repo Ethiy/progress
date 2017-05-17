@@ -59,7 +59,7 @@
 
 \begin{document}
 	\begin{centering}
-		\large\textbf{Progress Report: 16/03/2017}\\
+		\large\textbf{Progress Report: 05/04/2017}\\
 		~\\
 		Oussama ENNAFII:
 		\normalsize MATIS | TITANE \\
@@ -76,7 +76,6 @@
 			\item[-] The area encompasses an industrial area with shoe box buildings, a residential area with a lot of building similarities and a very sparse urban areas;
 			\item[-] I have every data possible on the area: DSM, 3D building models and Orthoimages.
 		\end{itemize}
-		\item[-] I need to script a program to query data for a model from DSM and Orthoimage databases.
 	\end{itemize}
 	
 	\section*{Implementation:}
@@ -95,6 +94,7 @@
 				\item[-] Save raster projections into georeferenced images using GDAL;
 				\item[-] Stitch Meshes (in order to stitch rooftops to facets);
 				\item[-] Read Scene tree from XML file.
+				\item[-] Imporved grately rasterization: with no artifacts, pixel size $= 6 cm $ $\Rightarrow$ all  Elancourt in one day.
 			\end{itemize}
 		\item To add:
 			\begin{itemize}
@@ -102,7 +102,6 @@
 		\end{itemize}
 		\item To complete:
 			\begin{itemize}
-				\item[-] Parallelize rasterization: a rasterization with pixel size equal to $0.2 m$ - to get a $1250 \times 1250$ raster image - takes around $35 min$ to compute!
 				\item[-] Improve logging.
 			\end{itemize}
 	\end{itemize}
@@ -115,81 +114,37 @@
 	\section*{Ideas:}
 	I have identified two possible approaches in mind:
 	\begin{itemize}
-		\item DSM and Z profil local comparison:
+		\item[-] DSM and Z profil local comparison:
 		\begin{itemize}
-			\item[-] Use computer vision feature detectos locally;
-			\item[-] compile error statics in histogram.
+			\item[-] Simple Thresholding for inexistant buildings that are reconstructed with terrain height.
+			\item[-] The difference still has structure - we can still see the facet borders - $\Rightarrow$ we can use the distribution of the difference (texture)  in order to determine if is noise or if the reconstruction missed something.
 		\end{itemize}
 		\item[-] Global building autoqualification:
 		\begin{itemize}
-			\item[-] Compute Laplace-Beltrami eigenvalues for each building: they are invariant to affine transforms;
+			\item[-] Computed dual graph of each roof. Possibility of a bag of Features approach to get the similarity in neighborhoods.
+		\end{itemize}
+		
+		\item[-] Orthoimage comparison:
+		\begin{itemize}
+			\item[-] Compute gradients "along" of building prints in order to detect any difference between inside or outside a facet/ building.
 		\end{itemize}
 	\end{itemize}
 	
 	\section*{Results:}
 	\begin{figure}[H]
 		\begin{center}
-			\caption{\label{img::snap} 3D Model sample.}
-			\includegraphics[scale=.3]{images/raster/elancourt/snapshot_100.png}
+			\caption{\label{img::comparison} Example of building Z profile and its comparison with DSM: from left to right, up to bottom, the z profile, the  masked dsm , the laplacian of the difference, the orientation of the difference gradients, the amplitude of the difference gradient and the histogram corresponding to the orientations of the difference gradients.}
+			\includegraphics[scale=.25]{images/raster/elancourt/prototyping_1246-13704_T25177_T25178_T25179_T25180.png}
 		\end{center}
 	\end{figure}
 	
 	\begin{figure}[H]
 		\begin{center}
-			\caption{\label{img::snap_top} Top view of the same area.}
-			\includegraphics[scale=.35]{images/raster/elancourt/snapshot_top01.png}
+			\caption{\label{img::comparison_bis} The same comparison applied for a building with chimney (not visible).}
+			\includegraphics[scale=.25]{images/raster/elancourt/prototyping_1246-13704_T23621_T23622.png}
 		\end{center}
 	\end{figure}
 	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::dsm} Registred DSM corresponding to the area.}
-			\includegraphics[scale=.4]{images/raster/elancourt/dsm.png}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::a_dsm} The generated Z-profil.}
-			\includegraphics[scale=.4]{images/raster/elancourt/artificial_dsm.png}
-		\end{center}
-	\end{figure}
-	
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::heatmap} Heat Map of the standard deviation ($@ pixel\_size=0.2m$) of the artificial DSM and the IGN-DSM: Blue $< 1\%$ , Green $\approx 35\%$ and Red $\approx 65\%$.}
-			\includegraphics[scale=.3]{images/raster/elancourt/heat_map.png}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::heatmap_shading} The previous Heat Map of the standard deviation ($@ pixel\_size=0.2m$) of the artificial DSM and the IGN-DSM compared to the shaded DSM.}
-			\includegraphics[scale=.4]{images/raster/elancourt/shaded_dsm_heat.png}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::heatmap_06} Heat Map of the standard deviation ($@ pixel\_size=0.06m$) of the artificial DSM and the IGN-DSM: Blue $< 1\%$ , Green $\approx 35\%$ and Red $\approx 65\%$.}
-			\includegraphics[scale=.4]{images/raster/elancourt/heat_map_06.png}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::heatmap_shading_06} The previous Heat Map of the standard deviation ($@ pixel\_size=0.06m$) of the artificial DSM and the IGN-DSM compared to the shaded DSM.}
-			\includegraphics[scale=.4]{images/raster/elancourt/shaded_dsm_heat_06.png}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::close_heatmap_shading_06} Close up view of the previous Heat Map of the standard deviation ($@ pixel\_size=0.06m$) of the artificial DSM and the IGN-DSM compared to the shaded DSM: you can view all the LOD3 details and roof panel discontinuity.}
-			\includegraphics[scale=.4]{images/raster/elancourt/closeup_heat_shaded_06.png}
-		\end{center}
-	\end{figure}
 \section*{Attachments:}
 
 \begin{itemize}
