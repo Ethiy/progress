@@ -9,6 +9,9 @@
 *.gz
 *.uml~
 *.pngw
+*.nav
+*.snm
+*.toc
 
 # Output
 *.pdf
