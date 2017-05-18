@@ -4,7 +4,7 @@
 
 \RequirePackage{tikz}
 \usetikzlibrary{arrows}
-\graphicspath{{../images/theme/}}
+\graphicspath{{../images/theme/}{../images/raster/}{../images/diagrams/}}
 
 \include{includes/IGN}
 
@@ -96,17 +96,17 @@
 	\section*{Introduction}
 	\begin{frame}{Introduction}
 		\begin{itemize}
-			\item[-] Implementation;
+			\item[-] Work progress;
 			\item[-] Error annotation;
-			\item[-] Future work.
+			\item[-] Future work (annotation and attributes).
 		\end{itemize}
 	\end{frame}
 	
 		
-	\section[Implementation]{Implementation:}
+	\section[Progress]{Work Progress:}
 
-	\subsection[Status]{Status:}
-	\begin{frame}[allowframebreaks]{Implemented features:}
+	\subsection[Implementation]{Implementation Status:}
+	\begin{frame}{Implemented features:}
 		\begin{itemize}
 				\item[-] Bati3D data input/output - 3DS and OFF;
 				\item[-] Georeference data;
@@ -116,46 +116,120 @@
 				\item[-] Project 3D models on 2D planes;
 				\item[-] Occlusion management.
 				\item[-] Save projections into georeferenced vectorial images using GDAL;
-				\framebreak
-				\item[-] Rasterize projections for DSM comparison;
-				\item[-] Imporved rasterization whithout artifacts.
-				\item[-] Save raster projections into georeferenced images using GDAL;
-				\item[-] Read Scene tree from XML file;
-				\item[-] Compute and save facet adjacency graphs and geometric features by facets;
-				\item[-] New Building Class;
-				\item[-] Automated testing.
+
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Implemented features:}
+		\begin{itemize}
+			\item[-] Rasterize projections for DSM comparison;
+			\item[-] Imporved rasterization whithout artifacts.
+			\item[-] Save raster projections into georeferenced images using GDAL;
+			\item[-] Read Scene tree from XML file;
+			\item[-] Compute and save facet adjacency graphs and geometric features by facets;
+			\item[-] New Building Class;
+			\item[-] Automated testing.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Features to add:}
+		\begin{itemize}
+			\item[-] Solving some minor bugs;
+			\item[-] Building adjacency graph and features (geometric and other).
 		\end{itemize}
 	\end{frame}
 
 	\section[Annotation]{Error annotation:}
 
-	\subsection[SubTitle]{SubTitle:}
-	\begin{frame}{Description:}
-		:
+	\subsection[Previous]{Previous work:}
+	\begin{frame}{Previous taxonomy:}
+		During the previous work of Jean Christophe Michelin, he distiguishes three main error classes:
 		\begin{itemize}
-			\item[-] Wow.
+			\item[-] Non qualifiable building errors:
+			\begin{itemize}
+				\item[-] Vegetation occlusion;
+			\end{itemize}
+			\item[-] Footprint errors:
+			\begin{itemize}
+				\item[-] Erroneous footprint,
+				\item[-] Footprint unprecision,
+				\item[-] Non existant building,
+				\item[-] Missing internal courtyard;
+			\end{itemize}
+			\item[-] Reconstruction errors:
+			\begin{itemize}
+				\item[-] Under segmentation,
+				\item[-] Over segmentation,
+				\item[-] Erroneous altitude,
+				\item[-] Edge unprecision.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Commentary:}
+		In general, I find that this classification can describe most errors I found while observing the data of Elacourt. Before going into details, here are some comments I have about this taxonomy:
+		\begin{itemize}
+			\item[-] Vegetation occlusion is more of a reason rather an error. It can for example cause a footprint error or a segmentation error;
+			\item[-] Footprint errors can be unified in one class as they almost always have the same cause;
+			\item[-] Altitude errors are hard to qualify and are always present when an other error is detected.
 		\end{itemize}
 	\end{frame}
 
-	\section[Title]{Title:}
-
-	\subsection[SubTitle]{SubTitle:}
-	\begin{frame}{Frame:}
-		something here:
+	\subsection[annotation]{Elancourt annotation:}
+	\begin{frame}{Data:}
+		I have chosen a residential area densely urbanised in Elancout for a first pass. I can report here some facts about this work:
 		\begin{itemize}
-			\item[-] Wow.
+			\item[-] There are some errors that are hard to qualify under the previous taxonomy;
+			\item[-] Sometimes it is hard to qualify some error with certainty: possibility of scoring errors.
 		\end{itemize}
 	\end{frame}
 
+	\begin{frame}{Data:}
+		\begin{figure}
+			\begin{center}
+				\caption{\label{img::snapshot} Snapshot for the 3D model of the annotated area.}
+				\includegraphics[scale=.2]{snapshot00.png}
+			\end{center}
+		\end{figure}
+	\end{frame}
 
+	\begin{frame}{Data:}
+		\begin{figure}
+			\begin{center}
+				\caption{\label{img::ortho} Orthoimage corresponding to the 3D Model.}
+				\includegraphics[scale=.08]{orthoimage.jpg}
+			\end{center}
+		\end{figure}
+	\end{frame}
 
-	
-	\section*{References}
-	\begin{frame}[allowframebreaks]{References}
-		\bibliographystyle{alpha}
-		\bibliography{../references.bib}
+	\begin{frame}{Data:}
+		\begin{figure}
+			\begin{center}
+				\caption{\label{img::annotation} Sample of the annotated area with the DSM as background.}
+				\includegraphics[scale=.25]{errors_sample.png}
+			\end{center}
+		\end{figure}
 	\end{frame}
 	
+	\begin{frame}{Data:}
+		\begin{figure}
+			\begin{center}
+				\caption{\label{img::mind_map} Mindmap for the errors encountered during the annotation.}
+				%%\includegraphics[scale=.2]{heuristic.png}
+			\end{center}
+		\end{figure}
+	\end{frame}
+
+	\section[Future]{Future Work:}
+
+	\begin{frame}{Directions to explore:}
+		
+		\begin{itemize}
+			\item[-] Annotate the all of Elancourt;
+			\item[-] Devise specific feature for each error type and classify over Elancourt;
+			\item[-] Access the transferability of learned features onto other areas.
+		\end{itemize}
+	\end{frame}
 	
 	\usebackgroundtemplate{
 		\begin{tikzpicture}
