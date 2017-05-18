@@ -112,7 +112,7 @@
 				\item[-] Georeference data;
 				\item[-] Geomview viewer;
 				\item[-] Algorithms on bricks: area, contour length, affine transformations;
-				\item[-] Meshe stitching (in order to stitch rooftops and facets);
+				\item[-] Mesh stitching (in order to stitch rooftops and facets);
 				\item[-] Project 3D models on 2D planes;
 				\item[-] Occlusion management.
 				\item[-] Save projections into georeferenced vectorial images using GDAL;
@@ -123,7 +123,7 @@
 	\begin{frame}{Implemented features:}
 		\begin{itemize}
 			\item[-] Rasterize projections for DSM comparison;
-			\item[-] Imporved rasterization whithout artifacts.
+			\item[-] Improved rasterization without artifacts.
 			\item[-] Save raster projections into georeferenced images using GDAL;
 			\item[-] Read Scene tree from XML file;
 			\item[-] Compute and save facet adjacency graphs and geometric features by facets;
@@ -143,7 +143,7 @@
 
 	\subsection[Previous]{Previous work:}
 	\begin{frame}{Previous taxonomy:}
-		During the previous work of Jean Christophe Michelin, he distiguishes three main error classes:
+		During the previous work of Jean Christophe Michelin, he distinguishes three main error classes:
 		\begin{itemize}
 			\item[-] Non qualifiable building errors:
 			\begin{itemize}
@@ -152,8 +152,8 @@
 			\item[-] Footprint errors:
 			\begin{itemize}
 				\item[-] Erroneous footprint,
-				\item[-] Footprint unprecision,
-				\item[-] Non existant building,
+				\item[-] Footprint imprecision,
+				\item[-] Non existent building,
 				\item[-] Missing internal courtyard;
 			\end{itemize}
 			\item[-] Reconstruction errors:
@@ -161,13 +161,13 @@
 				\item[-] Under segmentation,
 				\item[-] Over segmentation,
 				\item[-] Erroneous altitude,
-				\item[-] Edge unprecision.
+				\item[-] Edge imprecision.
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Commentary:}
-		In general, I find that this classification can describe most errors I found while observing the data of Elacourt. Before going into details, here are some comments I have about this taxonomy:
+		In general, I find that this classification can describe most errors I found while observing the data of Elancourt. Before going into details, here are some comments I have about this taxonomy:
 		\begin{itemize}
 			\item[-] Vegetation occlusion is more of a reason rather an error. It can for example cause a footprint error or a segmentation error;
 			\item[-] Footprint errors can be unified in one class as they almost always have the same cause;
@@ -177,7 +177,7 @@
 
 	\subsection[annotation]{Elancourt annotation:}
 	\begin{frame}{Data:}
-		I have chosen a residential area densely urbanised in Elancout for a first pass. I can report here some facts about this work:
+		I have chosen a residential area densely urbanized in Elancout for a first pass. I can report here some facts about this work:
 		\begin{itemize}
 			\item[-] There are some errors that are hard to qualify under the previous taxonomy;
 			\item[-] Sometimes it is hard to qualify some error with certainty: possibility of scoring errors.
@@ -202,16 +202,16 @@
 		\end{figure}
 	\end{frame}
 	
-	\begin{frame}{Data:}
+	\begin{frame}{Mind Map:}
 		\begin{figure}
 			\begin{center}
-				\caption{\label{img::mind_map} Mindmap for the errors encountered during the annotation.}
+				\caption{\label{img::mind_map} Mind map for the errors encountered during the annotation.}
 				\includegraphics[scale=.25]{heuristic.png}
 			\end{center}
 		\end{figure}
 	\end{frame}
 
-	\begin{frame}{Data:}
+	\begin{frame}{Error Samples:}
 		\begin{figure}
 			\begin{center}
 				\caption{\label{img::annotation} Sample of the annotated area with the DSM as background.}
@@ -225,7 +225,7 @@
 	\begin{frame}{Directions to explore:}
 		
 		\begin{itemize}
-			\item[-] Annotate the all of Elancourt;
+			\item[-] Annotate all of Elancourt;
 			\item[-] Devise specific feature for each error type and classify over Elancourt;
 			\item[-] Access the transferability of learned features onto other areas.
 		\end{itemize}
