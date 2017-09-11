@@ -6,19 +6,21 @@
     "language": "en",
     // words - list of words to be always considered correct
     "words": [
+        "Bati",
+        "MATIS",
+        "TITANE",
         "beamer",
         "currentsection",
-        "sectionstyle",
-        "subsectionstyle",
-        "frametitle",
-        "usebackgroundtemplate",
         "filldraw",
-        "setbeamercolor",
-        "usetikzlibrary",
+        "frametitle",
+        "georeferenced",
         "graphicspath",
         "includegraphics",
-        "georeferenced",
-        "Bati"
+        "sectionstyle",
+        "setbeamercolor",
+        "subsectionstyle",
+        "usebackgroundtemplate",
+        "usetikzlibrary"
     ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.
