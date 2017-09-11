@@ -24,9 +24,6 @@
 	\end{centering}
 
 
-
-
-
 	\section{The Dataset:}
 ~\\
 
@@ -52,75 +49,13 @@
 
 
 
-	\section*{Implementation:}
-	Implementation status:
-	\begin{itemize}
-		\item Implemented:
-			\begin{itemize}
-				\item[-] Reader: 3DS and OFF,
-				\item[-] Geomview viewer;
-				\item[-] Automated testing;
-				\item[-] Algorithms on bricks: area, contour length, affine transformations;
-				\item[-] Project 3D models in 2D;
-				\item[-] Occlusion management.
-				\item[-] Save projections into georeferenced vectorial images using GDAL;
-				\item[-] Rasterize projections for DSM comparison;
-				\item[-] Save raster projections into georeferenced images using GDAL;
-				\item[-] Stitch Meshes (in order to stitch rooftops to facets);
-				\item[-] Read Scene tree from XML file.
-				\item[-] Improved rasterization: with no artifacts, pixel size $= 6 cm $ $\Rightarrow$ all  Elancourt in one day.
-			\end{itemize}
-		\item To add:
-			\begin{itemize}
-				\item[-] Project 3D model on Camera.
-		\end{itemize}
-		\item To complete:
-			\begin{itemize}
-				\item[-] Improve logging.
-			\end{itemize}
-	\end{itemize}
-
-	\begin{figure}[H]
-		\caption{\label{diag::class} New changes to the program architecture.}
-	\end{figure}
-
-	\section*{Ideas:}
-	I have identified two possible approaches in mind:
-	\begin{itemize}
-		\item[-] DSM and Z profil local comparison:
-		\begin{itemize}
-			\item[-] Simple Thresholding for inexistant buildings that are reconstructed with terrain height.
-			\item[-] The difference still has structure - we can still see the facet borders - $\Rightarrow$ we can use the distribution of the difference (texture)  in order to determine if is noise or if the reconstruction missed something.
-		\end{itemize}
-		\item[-] Global building autoqualification:
-		\begin{itemize}
-			\item[-] Computed dual graph of each roof. Possibility of a bag of Features approach to get the similarity in neighborhoods.
-		\end{itemize}
-
-		\item[-] Orthoimage comparison:
-		\begin{itemize}
-			\item[-] Compute gradients "along" of building prints in order to detect any difference between inside or outside a facet/ building.
-		\end{itemize}
-	\end{itemize}
-
-	\section*{Results:}
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::comparison} Example of building Z profile and its comparison with DSM: from left to right, up to bottom, the z profile, the  masked dsm , the laplacian of the difference, the orientation of the difference gradients, the amplitude of the difference gradient and the histogram corresponding to the orientations of the difference gradients.}
-		\end{center}
-	\end{figure}
-
-	\begin{figure}[H]
-		\begin{center}
-			\caption{\label{img::comparison_bis} The same comparison applied for a building with chimney (not visible).}
-		\end{center}
-	\end{figure}
-
 \section*{Attachments:}
 
 \begin{itemize}
-	\item[-] You can checkout the Code in \href{https://github.com/Ethiy/3DSceneModel}{Github}.
-	\item[-] You can also check the \href{https://github.com/Ethiy/3DSceneModel/projects/1}{dev kaban}.
+	\item[-] You can checkout the preprocessing code on
+	\href{https://github.com/ethiy/proj.city}{Github}.
+	\item[-] You can also check the feature extraction and classification code
+	\href{https://github.com/ethiy/qualcity}{here}.
 \end{itemize}
 
 \end{document}
