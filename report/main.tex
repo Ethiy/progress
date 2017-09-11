@@ -31,24 +31,26 @@
 ~\\
 
 	We have decided earlier in June to work on Nantes and Dijon in addition to
-	Elancourt. As I explained later, the \textit{3ds} data for these regions are
-	not well formated so that I can retrieve the building entities. In order to
+	Elancourt. As I explained later, the $3DS$ data for these regions are not
+	well formated so that I can retrieve the building entities. In order to
 	establish first a whole pipeline. I will deal with those regions later using
-	the \textit{cityGML} data. In consequence, I will continue to work on
-	Elancourt only, for now.\\
+	the $CityGML$ data. In consequence, I will continue to work on Elancourt
+	only, for now.\\
 
 	I have also relabelled the zone I had labelled before. That is due to the fact
-	that the taxonomy has evolved during the annotation. I have used \textit{Qgis}
-	to annotate buildings' projected facets based on errors they showed.
+	that the taxonomy has evolved during the annotation. I have used $QGIS$ to
+	annotate buildings' projected facets based on errors they showed.\\
 
-
+	The errors have been subdivided, based on the labelling, into three classes:
 	\begin{itemize}
-		\item I am concentrating on Elancourt right now:
-		\begin{itemize}
-			\item[-] The area encompasses an industrial area with shoe box buildings, a residential area with a lot of building similarities and a very sparse urban areas;
-			\item[-] I have every data possible on the area: DSM, 3D building models and Orthoimages.
-		\end{itemize}
+		\item[-] Unqualified Building Errors: Concerns the buildings that will not
+		be taken into consideration,
+		\item[-] Building Errors: encompasses the errors that affect the whole
+		building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
+		\item[-] Facet Errors: concerns errors affecting only a facet.
 	\end{itemize}
+
+
 
 	\section*{Implementation:}
 	Implementation status:
