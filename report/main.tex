@@ -5,6 +5,10 @@
 
 \usepackage{hyperref}
 
+\usepackage{standalone}
+
+\usepackage{lscape}
+
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tikz}
@@ -49,122 +53,12 @@
 		\item[-] Facet Errors: concerns errors affecting only a facet.
 	\end{itemize}
 
-	\begin{figure}[H]
-		\begin{tikzpicture}
-			\usetikzlibrary{mindmap, trees}
-			\path[mindmap, concept color=red, text=white]
-				node[concept]{Errors}[clockwise from=0]
-				child[concept color=orange, text=black, grow=90]
-				{
-					node[concept]{Unqualified Building Error}[clockwise from=0]
-					child[concept color=purple!50, text=black, grow=0]
-					{
-						node[concept]{Half Building}[clockwise from=0]
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model Error}
-						}
-					}
-					child[concept color=purple!50, text=black, grow=60]
-					{
-						node[concept]{Changed Building}[clockwise from=0]
-						child[concept color=blue, text=white, grow=60]
-						{
-							node[concept]{Model Error}
-						}
-					}
-					child[concept color=purple!50, text=black, grow=120]
-					{
-						node[concept]{Occlusion}
-						child[concept color=blue, text=white, grow=120]
-						{
-							node[concept]{Vegetation}
-						}
-					}
-					child[concept color=purple!50, text=black, grow=180]
-					{
-						node[concept]{Unkown}
-						child[concept color=blue, text=white, grow=180]
-						{
-							node[concept]{Model Error}
-						}
-					}
-				}
-				child[concept color=orange, text=black, grow=330]
-				{
-					node[concept]{Facet Error}
-					child[concept color=purple!50, text=black, grow=60]
-					{
-						node[concept]{Une date}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				  child[concept color=purple!50, text=black, grow=0]
-					{
-						node[concept]{Plusieurs dates}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-					child[concept color=purple!50, text=black, grow=300]
-					{
-						node[concept]{Une date}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				  child[concept color=purple!50, text=black, grow=240]
-					{
-						node[concept]{Plusieurs dates}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				}
-				child[concept color=orange, text=black, grow=210]
-				{
-					node[concept]{Building Error}
-					child[concept color=purple!50, text=black, grow=300]
-					{
-						node[concept]{Une date}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				  child[concept color=purple!50, text=black, grow=240]
-					{
-						node[concept]{Plusieurs dates}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-					child[concept color=purple!50, text=black, grow=180]
-					{
-						node[concept]{Une date}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				  child[concept color=purple!50, text=black, grow=120]
-					{
-						node[concept]{Plusieurs dates}
-						child[concept color=blue, text=white, grow=0]
-						{
-							node[concept]{Model}
-						}
-					}
-				};
-		\end{tikzpicture}
-		\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
-\end{figure}
+	\begin{landscape}
+		\begin{figure}[]
+			\includestandalone[mode=buildnew, scale=.9]{mind_map}
+			\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
+		\end{figure}
+	\end{landscape}
 
 \section*{Attachments:}
 
