@@ -7,6 +7,7 @@
 
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tikz}
 
 \usepackage{listings}
 
@@ -39,6 +40,7 @@
 	annotate buildings' projected facets based on errors they showed.\\
 
 	The errors have been subdivided, based on the labelling, into three classes:
+
 	\begin{itemize}
 		\item[-] Unqualified Building Errors: Concerns the buildings that will not
 		be taken into consideration,
@@ -47,7 +49,48 @@
 		\item[-] Facet Errors: concerns errors affecting only a facet.
 	\end{itemize}
 
-
+	\begin{figure}[H]
+		\begin{tikzpicture}
+			\usetikzlibrary{mindmap, trees}
+			\path[mindmap, concept color=red, text=white]
+				node[concept]{Errors}[clockwise from=0]
+				child[concept color=orange, text=black, grow=90]
+				{
+					node[concept]{Unqualified Building}[clockwise from=0]
+					child[concept color=yellow, text=black, grow=0]
+					{
+						node[concept]{Half Building}[clockwise from=0]
+						child[concept color=blue, text=white, grow=0]
+						{
+							node[concept]{Model Error}
+						}
+					}
+					child[concept color=yellow, text=black, grow=60]
+					{
+						node[concept]{Changed Building}[clockwise from=0]
+						child[concept color=blue, text=white, grow=60]
+						{
+							node[concept]{Model Error}
+						}
+					}
+					child[concept color=yellow, text=black, grow=120]
+					{
+						node[concept]{Occlusion}
+					}
+					child[concept color=yellow, text=black, grow=180]
+					{
+						node[concept]{Unkown}
+					}
+				}
+				child[concept color=purple!50, text=black, grow=216]
+				{
+					node[concept]{Dimension temporelle}[clockwise from=216]
+				  child[concept color=purple!30, text=black]{ node[concept]{Une date}}
+				  child[concept color=purple!30, text=black]{ node[concept]{Plusieurs dates}}
+				};
+		\end{tikzpicture}
+		\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
+\end{figure}
 
 \section*{Attachments:}
 
