@@ -11,6 +11,7 @@
 
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{subfig}
 \usepackage{tikz}
 
 \usepackage{listings}
@@ -129,11 +130,22 @@
 
 
 	\begin{landscape}
-		\begin{figure}[]
-			\includestandalone[mode=buildnew, scale=.8]{mind_map}
-			\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
+		\begin{figure}
+			\begin{center}
+				\includestandalone[mode=buildnew, scale=.8]{mind_map}
+				\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
+			\end{center}
 		\end{figure}
 	\end{landscape}
+
+	\begin{figure}[H]
+		\begin{center}
+			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
+			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
+			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
+			\caption{\label{fig::error_samples} Samples of errors in the dataset.}
+		\end{center}
+	\end{figure}
 
 \section*{Attachments:}
 
