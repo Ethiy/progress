@@ -10,9 +10,11 @@
 \usepackage{lscape}
 
 \usepackage{graphicx}
-\usepackage{float}
 \usepackage{subfig}
 \usepackage{tikz}
+
+\usepackage{floatrow}
+\captionsetup{labelsep=period}
 
 \usepackage{listings}
 
@@ -80,7 +82,7 @@
 				\item[(ii).] among all files:  $0.0040$
 			\end{itemize}
 		\end{itemize}
-		\item ratio of \textbf{Facet} errors among all errors: $0.8157$
+		\item ratio of \textbf{Facet} errors among all errors: $0.81657$
 		\begin{itemize}
 			\item[-] ratio of \textbf{Over Segmentation} errors:
 			\begin{itemize}
@@ -132,20 +134,63 @@
 	\begin{landscape}
 		\begin{figure}
 			\begin{center}
-				\includestandalone[mode=buildnew, scale=.8]{mind_map}
+				\includestandalone[mode=buildnew, scale=.78]{mind_map}
 				\caption{\label{fig::mindmap_errors} Mind map representing the errors encountered during the annotation.}
 			\end{center}
 		\end{figure}
 	\end{landscape}
 
-	\begin{figure}[H]
+	\thisfloatsetup{heightadjust=object}
+	\begin{figure}
 		\begin{center}
-			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
-			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
-			\subfloat[Unqualified errors]{\label{fig::unqualified}}\includegraphics[width=.4\textwidth]{../images/raster/Unqualified_Errors/changed.png}
-			\caption{\label{fig::error_samples} Samples of errors in the dataset.}
+			\ffigbox
+			{
+				\ffigbox[\FBwidth]
+				{
+					\begin{subfloatrow}[4]
+						\captionsetup{labelformat=brace, justification=raggedright}
+						\ffigbox[\FBwidth]{\caption{Half Building.}\label{fig::half_building}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Unqualified_Errors/half_building}}}
+						\ffigbox[\FBwidth]{\caption{Changed Building.}\label{fig::changed}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Unqualified_Errors/changed}}}
+						\ffigbox[\FBwidth]{\caption{Occlusion.}\label{fig::occlusion}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Unqualified_Errors/occlusion}}}
+						\ffigbox[\FBwidth]{\caption{Unknown.}\label{fig::unknown}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Unqualified_Errors/unknown}}}
+					\end{subfloatrow}
+				}
+				{
+					\caption*{\label{fig::unq_samples} (i). Samples of Unqualified building errors.}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\begin{subfloatrow}[4]
+						\captionsetup{labelformat=brace, justification=raggedright}
+						\ffigbox[\FBwidth]{\caption{Under Segmentation.}\label{fig::under_bul}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Building_Errors/under_segmentation}}}
+						\ffigbox[\FBwidth]{\caption{Over segmentation.}\label{fig::over_bul}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Building_Errors/over_segmentation}}}
+						\ffigbox[\FBwidth]{\caption{Footprint.}\label{fig::footprint}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Building_Errors/footprint}}}
+						\ffigbox[\FBwidth]{\caption{Altitude.}\label{fig::too_low}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Building_Errors/altimetric}}}
+					\end{subfloatrow}
+				}
+				{
+					\caption*{\label{fig::bul_samples} (ii). Samples of Building errors.}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\begin{subfloatrow}[4]
+						\captionsetup{labelformat=brace, justification=raggedright}
+						\ffigbox[\FBwidth]{\caption{Under Segmentation.}\label{fig::under_fac}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Facet_Errors/under_segmentation}}}
+						\ffigbox[\FBwidth]{\caption{Over segmentation.}\label{fig::over_fac}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Facet_Errors/over_segmentation}}}
+						\ffigbox[\FBwidth]{\caption{Mis Segmentation.}\label{fig::mis}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Facet_Errors/mis_segmentation}}}
+						\ffigbox[\FBwidth]{\caption{Slope.}\label{fig::slope}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Facet_Errors/slope}}}
+					\end{subfloatrow}
+				}
+				{
+					\caption*{\label{fig::fac_samples} (iii). Samples of Facet errors.}
+				}
+			}
+			{
+				\caption{\label{fig::samples}Illustration of errors per class.}
+			}
 		\end{center}
 	\end{figure}
+	\clearpage
 
 \section*{Attachments:}
 
