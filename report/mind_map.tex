@@ -52,32 +52,40 @@
         node[concept]{Facet Error}
         child[concept color=purple!50, text=black, grow=60]
         {
-          node[concept]{Une date}
-          child[concept color=blue, text=white, grow=0]
+          node[concept]{Over Segmentation}
+          child[concept color=green!80!black, text=white, grow=60]
           {
-            node[concept]{Model Error}
+            node[concept]{Micro structures}
+            child[concept color=blue, text=white, grow=30]
+            {
+              node[concept]{Chimneys}
+            }
           }
         }
         child[concept color=purple!50, text=black, grow=0]
         {
-          node[concept]{Plusieurs dates}
+          node[concept]{Under Segmentation}
           child[concept color=blue, text=white, grow=0]
           {
-            node[concept]{Model Error}
+            node[concept]{Slope differences larger than Noise}
           }
         }
         child[concept color=purple!50, text=black, grow=300]
         {
-          node[concept]{Une date}
-          child[concept color=blue, text=white, grow=0]
+          node[concept]{Mis Segmentation}
+          child[concept color=green!80!black, text=white, grow=300]
           {
-            node[concept]{Model Error}
+            node[concept]{Blurred DSM edges}
+            child[concept color=blue, text=white, grow=0]
+            {
+              node[concept]{Correlation Regularization}
+            }
           }
         }
         child[concept color=purple!50, text=black, grow=240]
         {
-          node[concept]{Plusieurs dates}
-          child[concept color=blue, text=white, grow=0]
+          node[concept]{Slope}
+          child[concept color=blue, text=white, grow=240]
           {
             node[concept]{Model Error}
           }
@@ -105,9 +113,13 @@
         child[concept color=purple!50, text=black, grow=180]
         {
           node[concept]{Footprint}
-          child[concept color=blue, text=white, grow=120]
+          child[concept color=green!80!black, text=white, grow=120]
           {
-            node[concept]{Correlation Regularization}
+            node[concept]{Blurred DSM edges}
+            child[concept color=blue, text=white, grow=150]
+            {
+              node[concept]{Correlation Regularization}
+            }
           }
           child[concept color=green!80!black, text=white, grow=210]
           {
