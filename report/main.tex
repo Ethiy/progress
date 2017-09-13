@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
 
 \usepackage{floatrow}
 \captionsetup{labelsep=period}
@@ -248,7 +249,10 @@
 			{
 				Facet\\adjacency\\matrix
 			};
-			\draw[->,line width=.3mm, blue] (matrix) edge (-3.9,-4);
+			\draw[->, line width=.3mm, blue] (matrix) edge (-3.9,-4);
+			\node[draw] (degree) at (-5.8, 8.5) {degree};
+			\draw[decorate, line width=.3mm, decoration={brace}, orange]  (.35, 7.8) -- (5.5, 7.8);
+			\node[draw] (normal) at (2,93, 8.5) {Facet normal};
 		\end{tikzpicture}
 	\end{figure}
 
