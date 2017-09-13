@@ -13,11 +13,10 @@
 \usepackage{subfig}
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing}
-
 \usepackage{floatrow}
 \captionsetup{labelsep=period}
 
-\usepackage{listings}
+\usepackage{amsmath}
 
 \usepackage{fullpage}
 
@@ -55,11 +54,13 @@
 	The errors have been subdivided, based on the labelling, into three classes:
 
 	\begin{itemize}
-		\item[-] Unqualified Building Errors: Concerns the buildings that will not
+		\item[-] Unqualified Building Errors (\textit{c.f.} figure ~\ref{fig::samples}-(i).): Concerns the buildings that will not
 		be taken into consideration,
-		\item[-] Building Errors: encompasses the errors that affect the whole
-		building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
-		\item[-] Facet Errors: concerns errors affecting only a facet.
+		\item[-] Building Errors (\textit{c.f.} figure ~\ref{fig::samples}-(ii).):
+		encompasses the errors that affect the whole
+		building (corrensponds roughly to $LoD0$ and $LoD1$ errors ),
+		\item[-] Facet Errors (\textit{c.f.} figure ~\ref{fig::samples}-(iii).):
+		concerns errors affecting only a facet.
 	\end{itemize}
 
 	\thisfloatsetup{heightadjust=object}
@@ -78,7 +79,7 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{\label{fig::unq_samples} (i). Samples of Unqualified building errors.}
+					\caption*{(i). Samples of Unqualified building errors.}
 				}
 				\ffigbox[\FBwidth]
 				{
@@ -91,7 +92,7 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{\label{fig::bul_samples} (ii). Samples of Building errors.}
+					\caption*{(ii). Samples of Building errors.}
 				}
 				\ffigbox[\FBwidth]
 				{
@@ -104,7 +105,7 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{\label{fig::fac_samples} (iii). Samples of Facet errors.}
+					\caption*{(iii). Samples of Facet errors.}
 				}
 			}
 			{
@@ -115,7 +116,40 @@
 	\clearpage
 
 
-	Here are some statistics over the labelled dataset comprizing $502$ buildings:
+	Here are some statistics over the labelled dataset (\textit{c.f.} figure ~\ref{fig::dataset}) comprizing $502$ buildings:
+
+	\begin{figure}
+		\ffigbox[\FBwidth]
+		{
+			\begin{subfloatrow}[3]
+				\captionsetup{labelformat=brace, justification=raggedright}
+				\ffigbox[\FBwidth]
+				{
+					\includegraphics[width=.30\textwidth]{../images/raster/snapshot00}
+				}
+				{
+					\caption{Snapshot of the 3D scene.}\label{fig::snapshot}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\includegraphics[width=.30\textwidth]{../images/raster/orthoimage}
+				}
+				{
+					\caption{Orthoimage corresponding to the scene.}\label{fig::ortho}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\includegraphics[width=.30\textwidth]{../images/raster/errors_sample}
+				}
+				{
+					\caption{Labelled errors sample.}\label{fig::errors_sample}
+				}
+			\end{subfloatrow}
+		}
+		{
+			\caption{\label{fig::dataset} Labelled dataset.}
+		}
+	\end{figure}
 
 	\begin{itemize}
 		\item Ratio of \textbf{Building} errors among all errors: $0.2408$
@@ -294,6 +328,52 @@
 		\caption{\label{fig::geom_features} Low level geometric features per building.}
 	\end{figure}
 	\clearpage
+
+	\subsection{Mid level features:}
+~\\
+
+	The previous features are raw and not useful for classification. As a first
+	step, in order to establish a baseline for the qualification, I choose simple
+	features that can be classed as follows:
+	\begin{itemize}
+		\item[(i).] Geometric --- or intrinsic --- features: based on the graph
+		adjacency features and the vector orthoprojections, I propose the feature
+		vector per building in equation ~\ref{eq::feature_vec}:
+		\begin{equation}\label{eq::feature_vec}
+			\text{feature\_vector} = \begin{bmatrix}
+				\#\text{facets}\\
+				\#\text{edges of projected building}\\
+				\max_{\text{facets}} \text{(degree)}\\
+				\min_{\text{facets}} \text{(degree)}\\
+				\text{mean$_{\text{facets}}$ (degree)}\\
+				\max_{\text{facets}} \text{(projected\_area)}\\
+				\min_{\text{facets}} \text{(projected\_area)}\\
+				\text{mean$_{\text{facets}}$ (projected\_area)}\\
+				\max_{\text{facets}} \text{(area)}\\
+				\min_{\text{facets}} \text{(area)}\\
+				\text{mean$_{\text{facets}}$ (area)}\\
+				\max_{\text{facets}} \text{(circumferece)}\\
+				\min_{\text{facets}} \text{(circumferece)}\\
+				\text{mean$_{\text{facets}}$ (circumferece)}\\
+				\max_{\text{btw facets}} \text{(angles)}\\
+				\min_{\text{btw facets}} \text{(angles)}\\
+				\text{mean$_{\text{btw facets}}$ (angles)}
+		\end{bmatrix}
+		\end{equation}
+		\item[(ii).] Altimetric features: using the raster projection and the
+		provided DSM, I can compute the difference and use the its histogram as a
+		first feature vector. I can also try to discriminate buildings based on
+		detecting structures in the difference or just noise from the correlation.
+		\item[(iii.)] Image features: using the vector projection, I can compute
+		the gradient along facet edges to detect segmentation errors mainly.
+	\end{itemize}
+
+	For now, I focus on the geometric features to complete the whole classification
+	pipeline. I can move then to the other features. It would be also interesting
+	to analyse which features affect the most the classification for future improvements.
+	I will also leave the graph kernel methods for later, until I have a complete
+	pipeline. I should also grow my labelled datasets and invistigate other regions.
+
 
 	\section*{Attachments:}
 	\begin{itemize}
