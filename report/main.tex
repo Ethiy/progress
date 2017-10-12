@@ -9,6 +9,7 @@
 
 \usepackage{lscape}
 
+\usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{tikz}
@@ -54,22 +55,19 @@
 	The errors have been subdivided, based on the labelling, into three classes:
 
 	\begin{itemize}
-		\item[-] Unqualified Building Errors (\textit{c.f.} figure ~\ref{fig::samples}-(i).): Concerns the buildings that will not
+		\item[-] Unqualified Building Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (i).): Concerns the buildings that will not
 		be taken into consideration,
-		\item[-] Building Errors (\textit{c.f.} figure ~\ref{fig::samples}-(ii).):
-		encompasses the errors that affect the whole
-		building (corrensponds roughly to $LoD0$ and $LoD1$ errors ),
-		\item[-] Facet Errors (\textit{c.f.} figure ~\ref{fig::samples}-(iii).):
+		\item[-] Building Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (ii).):
+		encompasses the errors that affect the whole building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
+		\item[-] Facet Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (iii).):
 		concerns errors affecting only a facet.
 	\end{itemize}
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}
 		\begin{center}
-			\ffigbox
-			{
-				\ffigbox[\FBwidth]
-				{
+			\ffigbox{
+				\ffigbox[\FBwidth]{
 					\begin{subfloatrow}[4]
 						\captionsetup{labelformat=brace, justification=raggedright}
 						\ffigbox[\FBwidth]{\caption{Half Building: only a portion of the building is reconstructed.}\label{fig::half_building}}{\fbox{\includegraphics[width=.24\textwidth]{../images/raster/Unqualified_Errors/half_building}}}
@@ -115,8 +113,7 @@
 	\end{figure}
 	\clearpage
 
-
-	Here are some statistics over the labelled dataset (\textit{c.f.} figure ~\ref{fig::dataset}) comprizing $502$ buildings:
+	Here are some statistics over the labelled dataset (\textit{c.f.} figure.~\ref{fig::dataset}) comprizing $502$ buildings:
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}
@@ -151,6 +148,29 @@
 			\caption{\label{fig::dataset} Labelled dataset.}
 		}
 	\end{figure}
+
+	\begin{table}[H]
+		\centering
+		\caption{\label{my-label} }
+		\begin{tabular}{|c|c|c|p{2cm}|p{2cm}|}
+			\hline
+			\multicolumn{1}{|l|}{Error Class}      & Ratio             & Sub Classes & Ratio among class errors & Ratio among all buildings \\ \hline
+			\multirow{4}{*}{Unqualified Buildings} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
+			                                       &                   &            &       &       \\ \cline{3-5}
+			                                       &                   &            &       &       \\ \cline{3-5}
+			                                       &                   &            &       &       \\ \hline
+			\hline
+			\multirow{4}{*}{Building Error} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \hline
+      \hline
+			\multirow{4}{*}{Facet Errors} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \cline{3-5}
+																						 &                   &            &       &       \\ \hline
+		\end{tabular}
+	\end{table}
 
 	\begin{itemize}
 		\item Ratio of \textbf{Building} errors among all errors: $0.2408$
@@ -240,14 +260,7 @@
 	\subsection{Low level features:}
 
 
-	The first step of computing features was to extract low level features and
-	expose them so that I can engineer sophisticated features to train the
-	classifiers on. In fact, For each building, I computed the facet adjacency
-	graph --- \textit{c.f.} figure ~\ref{fig::geom_features} --- with meaningful
-	information for each facet. I also computed the orthoprojection\footnote{Projection
-	on the Plane $(O, \vec{\imath}, \vec{\jmath})$} of buildings and stored it
-	in vectorial --- \textit{c.f.} figure ~\ref{fig::vector} --- and raster mode
-	--- \textit{c.f.} figure ~\ref{fig::raster}.\\
+	The first step of computing features was to extract low level features and expose them so that I can engineer sophisticated features to train the classifiers on. In fact, For each building, I computed the facet adjacency graph --- \textit{c.f.} figure.~\ref{fig::geom_features} --- with meaningful information for each facet. I also computed the orthoprojection\footnote{Projection on the Plane $(O, \vec{\imath}, \vec{\jmath})$} of buildings and stored it in vectorial --- \textit{c.f.} figure.~\ref{fig::vector} --- and raster mode --- \textit{c.f.} figure.~\ref{fig::raster}.\\
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]
@@ -261,71 +274,12 @@
 			\end{subfloatrow}
 		}
 		{
-			\caption{\label{fig::ortho}Scene orthoprojections.}
+			\caption{\label{fig::orthoproj}Scene orthoprojections.}
 		}
 	\end{figure}
 
 	\begin{figure}[H]
-		\begin{tikzpicture}
-			\fill[blue!40] (-5.9,0) rectangle (-.5,-7.65);
-			\fill[red!40] (-5.5, 7.7) rectangle (-5.25, 7.2);
-			\fill[yellow!40] (-5.23, 7.7) rectangle (-3.82, 7.2);
-			\fill[green!40] (-3.8, 7.7) rectangle (.33, 7.2);
-			\fill[orange!40] (.35, 7.7) rectangle (5.5, 7.2);
-			\node[draw, align=left] (feature)
-			{
-				$0$ $3$ $5.84671$ $223.879$ $100.502$ $57.9925$ $0.497713$ $-0.218992$ $-0.83924$\\
-				$1$ $3$ $9.63451$ $221.957$ $100.157$ $56.9235$ $0.497551$ $-0.21908$ $-0.839313$\\
-				$2$ $3$ $0.287879$ $221.127$ $102.645$ $57.4052$ $0.507143$ $-0.200486$ $-0.838219$\\
-				$3$ $3$ $0.0974925$ $222.574$ $102.915$ $55.608$ $0.492386$ $-0.231647$ $-0.838985$\\
-				$4$ $3$ $4.12117$ $220.972$ $101.895$ $55.866$ $0.496937$ $-0.217878$ $-0.83999$\\
-				$5$ $3$ $9.36722$ $215.772$ $102.825$ $2.80149$ $-0.497466$ $0.218276$ $-0.839573$\\
-				$6$ $3$ $9.55822$ $214.725$ $104.501$ $3.88263$ $-0.497479$ $0.218889$ $-0.839406$\\
-				$7$ $4$ $138.647$ $367.503$ $234.926$ $-9.63$ $0.915728$ $-0.401799$ $-0$\\
-				$8$ $4$ $211.439$ $432.039$ $80.2724$ $-8.18295$ $0.412573$ $0.910925$ $-0$\\
-				$9$ $4$ $134.054$ $412.894$ $81.278$ $-7.34601$ $0.410781$ $0.911734$ $-0$\\
-				$10$ $4$ $10.9765$ $373.343$ $246.208$ $-8.39096$ $0.877879$ $-0.478882$ $-0$\\
-				$11$ $4$ $3.76836$ $393.75$ $247.548$ $-8.37548$ $0.813799$ $-0.581146$ $-0$\\
-				$12$ $4$ $85.1498$ $411.807$ $84.5176$ $-8.93379$ $0.401355$ $0.915923$ $-0$\\
-				$13$ $4$ $157.021$ $355.668$ $240.537$ $-9.63$ $-0.915841$ $0.401542$ $-0$\\
-				$14$ $4$ $211.348$ $422.986$ $80.8744$ $-8.18295$ $-0.402533$ $-0.915406$ $-0$\\
-				$15$ $4$ $211.57$ $432.496$ $77.0605$ $-8.18295$ $-0.400067$ $-0.916486$ $-0$\\
-				1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0\\
-				1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0\\
-				0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0\\
-				0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0\\
-				0 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0\\
-				0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0\\
-				1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0\\
-				0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1\\
-				0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0\\
-				0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0\\
-				0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0\\
-				0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0\\
-				0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0\\
-				0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 0\\
-				0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1\\
-				0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1
-			};
-			\node[draw, align=left, blue] at (-7.2, -4) (matrix)
-			{
-				Facet\\adjacency\\matrix
-			};
-			\draw[decorate, line width=.3mm, decoration={brace}, blue]  (-6, -7.65) -- (-6, 0);
-			\node[draw] (index) at (-6.2, 8.3) {Facet index};
-			\draw[line width=.3mm] (index) -- (-6.2, 7.8) -- (-5.7, 7.8);
-			\draw[->, line width=.3mm] (-5.7, 7.8) -- (-5.7, 7.5);
-			\node[draw, red] (degree) at (-5.05, 9.2) {Facet degree};
-			\draw[line width=.3mm, red] (degree) -- (-5.05, 7.8) -- (-5.4, 7.8);
-			\draw[->, line width=.3mm, red] (-5.4, 7.8) -- (-5.4, 7.5);
-			\node[draw, yellow] (area) at (-4, 8.5) {Facet area};
-			\draw[line width=.3mm, yellow] (area) -- (-4, 7.8) -- (-4.5, 7.8);
-			\draw[->, line width=.3mm, yellow](-4.5, 7.8) -- (-4.5, 7.5);
-			\node[draw, green] (centroid) at (-1.5, 8.2) {Facet centroid};
-			\draw[decorate, line width=.3mm, decoration={brace}, green]  (-3.8, 7.8) -- (.33, 7.8);
-			\node[draw, orange] (normal) at (3.3, 8.2) {Facet normal};
-			\draw[decorate, line width=.3mm, decoration={brace}, orange]  (.35, 7.8) -- (5.5, 7.8);
-		\end{tikzpicture}
+		\includestandalone[mode=buildnew, scale=.78]{dual_features}
 		\caption{\label{fig::geom_features} Low level geometric features per building.}
 	\end{figure}
 	\clearpage
@@ -337,44 +291,49 @@
 	step, in order to establish a baseline for the qualification, I choose simple
 	features that can be classed as follows:
 	\begin{itemize}
-		\item[(i).] Geometric --- or intrinsic --- features: based on the graph
-		adjacency features and the vector orthoprojections, I propose the feature
-		vector per building in equation ~\ref{eq::feature_vec}:
+		\item[(i).] Geometric --- or intrinsic --- features: based on the graph adjacency features and the vector orthoprojections, I tried the feature vector per building in equation.~\ref{eq::feature_vec}:
 		\begin{equation}\label{eq::feature_vec}
 			\text{feature\_vector} = \begin{bmatrix}
-				\#\text{facets}\\
-				\#\text{edges of projected building}\\
-				\max_{\text{facets}} \text{(degree)}\\
-				\min_{\text{facets}} \text{(degree)}\\
-				\text{mean$_{\text{facets}}$ (degree)}\\
-				\max_{\text{facets}} \text{(projected\_area)}\\
-				\min_{\text{facets}} \text{(projected\_area)}\\
-				\text{mean$_{\text{facets}}$ (projected\_area)}\\
-				\max_{\text{facets}} \text{(area)}\\
-				\min_{\text{facets}} \text{(area)}\\
-				\text{mean$_{\text{facets}}$ (area)}\\
-				\max_{\text{facets}} \text{(circumferece)}\\
-				\min_{\text{facets}} \text{(circumferece)}\\
-				\text{mean$_{\text{facets}}$ (circumferece)}\\
-				\max_{\text{btw facets}} \text{(angles)}\\
-				\min_{\text{btw facets}} \text{(angles)}\\
-				\text{mean$_{\text{btw facets}}$ (angles)}
+				statistics(degree_{facets})\\
+				statistics(areas_{facets})\\
+				statistics(centroid_{facets})\\
+				statistics(normal_{facets})\\
+				statistics(nomal\_with\_relations_{facets})
 		\end{bmatrix}
 		\end{equation}
-		\item[(ii).] Altimetric features: using the raster projection and the
-		provided DSM, I can compute the difference and use the its histogram as a
-		first feature vector. I can also try to discriminate buildings based on
-		detecting structures in the difference or just noise from the correlation.
-		\item[(iii.)] Image features: using the vector projection, I can compute
-		the gradient along facet edges to detect segmentation errors mainly.
+		where:
+		\begin{equation}
+			statistics: property \mapsto \begin{bmatrix}
+			\max_{facets}(property)\\
+			\min_{facets}(property)\\
+			mean_{facets}(property)\\
+			median_{facets}(property)
+		\end{bmatrix}
+		\end{equation}
+		\item[(ii).] Altimetric features: using the raster projections and the provided DSM, I computed the difference and used the its histogram as a feature vector. I can also try Bredif's method for DSM roof fitting later on.
+		\item[(iii.)] Image features: left for later.
 	\end{itemize}
 
-	For now, I focus on the geometric features to complete the whole classification
-	pipeline. I can move then to the other features. It would be also interesting
-	to analyse which features affect the most the classification for future improvements.
-	I will also leave the graph kernel methods for later, until I have a complete
-	pipeline. I should also grow my labelled datasets and invistigate other regions.
+	For now, I have focused on geometric features and altimetic features to complete the whole classification pipeline.The graph kernel methods and ortho image features are left for later. I should also grow my labelled datasets and invistigate other regions by active learning: transforming the pipeline to an active setting.
 
+	\section{Experiments:}
+~\\
+	\subsection{Features visualization:}
+
+	I tried visualizing features by reducing their dimensions using PCA. In figure , we can see how
+
+	I am trying also to cluster the features in between $9$ --- number of all subclasses --- and $3$ --- number of Coarse classes --- clusters. The idea is to see if features can be interpreted and are well defined or we are overfitting during classification.
+
+	\subsection{Classification results:}
+
+	The classification pipeline is subdivided into two phases:
+
+	\begin{itemize}
+		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified an can be determined also by the operator;
+		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: 'None', 'Building error', 'Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in . We can also observe how facet relations play a big role in the classification.
+	\end{itemize}
+
+	The work is still at its begining. I need to classify now on subclasses and try to link the results back to real building in QGIS.
 
 	\section*{Attachments:}
 	\begin{itemize}
