@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+\usepackage{csquotes}
+
 \usepackage{hyperref}
 
 \usepackage{standalone}
@@ -48,6 +50,40 @@
 	that the taxonomy has evolved during the annotation. I have used $QGIS$ to
 	annotate buildings' projected facets based on errors they showed.\\
 
+	\thisfloatsetup{heightadjust=object}
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]
+		{
+			\begin{subfloatrow}[3]
+				\captionsetup{labelformat=brace, justification=raggedright}
+				\ffigbox[\FBwidth]
+				{
+					\fbox{\includegraphics[width=.29\textwidth]{../images/raster/snapshot00}}
+				}
+				{
+					\caption{Snapshot of the 3D scene.}\label{fig::snapshot}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\fbox{\includegraphics[width=.285\textwidth]{../images/raster/orthoimage}}
+				}
+				{
+					\caption{Orthoimage corresponding to the scene.}\label{fig::ortho}
+				}
+				\ffigbox[\FBwidth]
+				{
+					\fbox{\includegraphics[width=.33\textwidth]{../images/raster/errors_sample}}
+				}
+				{
+					\caption{Labelled errors sample.}\label{fig::errors_sample}
+				}
+			\end{subfloatrow}
+		}
+		{
+			\caption{\label{fig::dataset} Labelled dataset.}
+		}
+	\end{figure}
+
 	\subsection{Annotated errors:}
 ~\\
 
@@ -62,6 +98,32 @@
 		\item[-] Facet Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (iii).):
 		concerns errors affecting only a facet.
 	\end{itemize}
+
+
+	In table.~\ref{tab::label_stats} we present some statistics over the labelled dataset (\textit{c.f.} figure.~\ref{fig::dataset}) comprizing $502$ buildings:
+
+	\begin{table}[H]
+		\centering
+		\caption{\label{tab::label_stats} Label statistics over the $502$ building dataset.}
+		\begin{tabular}{|c|c|c|p{2cm}|p{2cm}|}
+			\hline
+			\multicolumn{1}{|l|}{Error Class}      & Ratio             & Sub Classes & Ratio among class errors & Ratio among all buildings \\ \hline
+			\multirow{4}{*}{Unqualified Buildings} & \multirow{4}{*}{$0.0876$} & Half Building & $0.8636$ & $0.0757$ \\ \cline{3-5}
+				&                   & Changed Building & $0.0455$ & $0.0040$ \\ \cline{3-5}
+				&                   & Occlusion & $0.0455$ & $0.0040$ \\ \cline{3-5}
+				&                   & Unknown & $0.0455$ & $0.0040$ \\ \hline
+			\hline
+			\multirow{4}{*}{Building Error} & \multirow{4}{*}{$0.2408$} & Over Segmentation & $0.1365$ & $0.0328$\\ \cline{3-5}
+				&                   & Under Segmentation & $0.4177$ & $0.1006$ \\ \cline{3-5}
+				&                   & Footprint & $0.4839$ & $0.1165$ \\ \cline{3-5}
+				&                   & Altimetric & $0.0165$ & $0.0040$ \\ \hline
+      \hline
+			\multirow{4}{*}{Facet Errors} & \multirow{4}{*}{$0.81657$} & Over Segmentation & $0.8830$ & $0.7203$ \\ \cline{3-5}
+				&                   & Under Segmentation & $0.0842$ & $0.0687$ \\ \cline{3-5}
+				&                   & Mis Segmentation & $0.0806$ & $0.0657$ \\ \cline{3-5}
+				&                   & Slope & $0.0327$ & $0.0267$ \\ \hline
+		\end{tabular}
+	\end{table}
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}
@@ -111,139 +173,6 @@
 			}
 		\end{center}
 	\end{figure}
-	\clearpage
-
-	Here are some statistics over the labelled dataset (\textit{c.f.} figure.~\ref{fig::dataset}) comprizing $502$ buildings:
-
-	\thisfloatsetup{heightadjust=object}
-	\begin{figure}
-		\ffigbox[\FBwidth]
-		{
-			\begin{subfloatrow}[3]
-				\captionsetup{labelformat=brace, justification=raggedright}
-				\ffigbox[\FBwidth]
-				{
-					\fbox{\includegraphics[width=.29\textwidth]{../images/raster/snapshot00}}
-				}
-				{
-					\caption{Snapshot of the 3D scene.}\label{fig::snapshot}
-				}
-				\ffigbox[\FBwidth]
-				{
-					\fbox{\includegraphics[width=.285\textwidth]{../images/raster/orthoimage}}
-				}
-				{
-					\caption{Orthoimage corresponding to the scene.}\label{fig::ortho}
-				}
-				\ffigbox[\FBwidth]
-				{
-					\fbox{\includegraphics[width=.33\textwidth]{../images/raster/errors_sample}}
-				}
-				{
-					\caption{Labelled errors sample.}\label{fig::errors_sample}
-				}
-			\end{subfloatrow}
-		}
-		{
-			\caption{\label{fig::dataset} Labelled dataset.}
-		}
-	\end{figure}
-
-	\begin{table}[H]
-		\centering
-		\caption{\label{my-label} }
-		\begin{tabular}{|c|c|c|p{2cm}|p{2cm}|}
-			\hline
-			\multicolumn{1}{|l|}{Error Class}      & Ratio             & Sub Classes & Ratio among class errors & Ratio among all buildings \\ \hline
-			\multirow{4}{*}{Unqualified Buildings} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
-			                                       &                   &            &       &       \\ \cline{3-5}
-			                                       &                   &            &       &       \\ \cline{3-5}
-			                                       &                   &            &       &       \\ \hline
-			\hline
-			\multirow{4}{*}{Building Error} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \hline
-      \hline
-			\multirow{4}{*}{Facet Errors} & \multirow{4}{*}{} &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \cline{3-5}
-																						 &                   &            &       &       \\ \hline
-		\end{tabular}
-	\end{table}
-
-	\begin{itemize}
-		\item Ratio of \textbf{Building} errors among all errors: $0.2408$
-		\begin{itemize}
-			\item[-] Ratio of \textbf{Over Segmentation} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Building} errors:  $0.1365$
-				\item[(ii).] among all files:  $0.03287$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Under Segmentation} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Building} errors:  $0.4177$
-				\item[(ii).] among all files:   $0.1006$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Footprint} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Building} errors:  $0.4839$
-				\item[(ii).] among all files:  $0.1165$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Altimetric} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Building} errors:  $0.0165$
-				\item[(ii).] among all files:  $0.0040$
-			\end{itemize}
-		\end{itemize}
-		\item Ratio of \textbf{Facet} errors among all errors: $0.81657$
-		\begin{itemize}
-			\item[-] Ratio of \textbf{Over Segmentation} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Facet} errors:  $0.8830$
-				\item[(ii).] among all files:  $0.7203$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Under Segmentation} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Facet} errors:  $0.0842$
-				\item[(ii).] among all files:   $0.0687$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Mis Segmentation} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Facet} errors:  $0.0806$
-				\item[(ii).] among all files:  $0.0657$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Slope} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Facet} errors:  $0.0327$
-				\item[(ii).] among all files:  $0.0267$
-			\end{itemize}
-		\end{itemize}
-		\item Ratio of \textbf{Unqualified} errors among all errors: $0.0876$
-		\begin{itemize}
-			\item[-] Ratio of \textbf{Half Building} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Unqualified} errors:  $0.8636$
-				\item[(ii).] among all files:  $0.0757$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Change Building} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Unqualified} errors:  $0.0455$
-				\item[(ii).] among all files:   $0.0040$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Occlusion} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Unqualified} errors:  $0.0455$
-				\item[(ii).] among all files:  $0.0040$
-			\end{itemize}
-			\item[-] Ratio of \textbf{Unknown} errors:
-			\begin{itemize}
-				\item[(i).] among \textbf{Unqualified} errors:   $0.0455$
-				\item[(ii).] among all files:  $0.0040$
-			\end{itemize}
-		\end{itemize}
-	\end{itemize}
-
 
 	\begin{landscape}
 		\begin{figure}
@@ -279,7 +208,7 @@
 	\end{figure}
 
 	\begin{figure}[H]
-		\includestandalone[mode=buildnew, scale=.78]{dual_features}
+		\includestandalone[mode=buildnew, scale=1]{dual_features}
 		\caption{\label{fig::geom_features} Low level geometric features per building.}
 	\end{figure}
 	\clearpage
@@ -297,8 +226,8 @@
 				statistics(degree_{facets})\\
 				statistics(areas_{facets})\\
 				statistics(centroid_{facets})\\
-				statistics(normal_{facets})\\
-				statistics(nomal\_with\_relations_{facets})
+				statistics(normals_{facets})\\
+				statistics(nomals\_with\_relations_{facets})
 		\end{bmatrix}
 		\end{equation}
 		where:
@@ -320,18 +249,229 @@
 ~\\
 	\subsection{Features visualization:}
 
-	I tried visualizing features by reducing their dimensions using PCA. In figure , we can see how
+	I tried visualizing features by reducing their dimensions using PCA. In figure.~\ref{fig::pca_viz}, we can see in snapshots what looks like structures in data.
 
-	I am trying also to cluster the features in between $9$ --- number of all subclasses --- and $3$ --- number of Coarse classes --- clusters. The idea is to see if features can be interpreted and are well defined or we are overfitting during classification.
+	\thisfloatsetup{heightadjust=object}
+	\begin{figure}[H]
+		\ffigbox
+		{
+			\ffigbox[\FBwidth]
+			{
+				\begin{subfloatrow}[3]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_1.eps}}
+					}
+					{
+						\caption{.}\label{fig::geom_1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_2.eps}}
+					}
+					{
+						\caption{.}\label{fig::geom_2}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_3.eps}}
+					}
+					{
+						\caption{.}\label{fig::geom_3}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption*{(i). Visualization of geometric features.}
+			}
+			\ffigbox[\FBwidth]
+			{
+				\begin{subfloatrow}[3]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_1.eps}}
+					}
+					{
+						\caption{.}\label{fig::alti_1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_2.eps}}
+					}
+					{
+						\caption{.}\label{fig::alti_2}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_3.eps}}
+					}
+					{
+						\caption{.}\label{fig::alti_3}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption*{(ii). Visualization of altimetric features.}
+			}
+			\ffigbox[\FBwidth]
+			{
+				\begin{subfloatrow}[3]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_1.eps}}
+					}
+					{
+						\caption{.}\label{fig::fused_1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_2.eps}}
+					}
+					{
+						\caption{.}\label{fig::fused_2}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_3.eps}}
+					}
+					{
+						\caption{.}\label{fig::fused_3}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption*{(iii). Visualization fused features.}
+			}
+		}
+		{
+			\caption{\label{fig::pca_viz} Visualization of \textit{PCA} reduced features.}
+		}
+	\end{figure}
+
+	I am trying also to cluster the features in between $9$ --- number of all subclasses --- and $3$ --- number of Coarse classes --- clusters. The idea is to see if features can be interpreted and are well defined or we are overfitting during classification. In figure.~\ref{fig::clust_viz}, we choose 7 clusters. The outliers cause both methods to have clusters with only one element, but otherwise we can see how it can capture coarse structures in data that do not correspond always to defined classes.
+
+	\thisfloatsetup{heightadjust=object}
+	\begin{figure}[H]
+		\ffigbox{
+			\ffigbox[\FBwidth]{
+				\begin{subfloatrow}[2]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.48\textwidth]{../images/vizualization/kmeans_7_1.eps}}
+					}
+					{
+						\caption{.}\label{fig::kmeans_1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.48\textwidth]{../images/vizualization/kmeans_7_2.eps}}
+					}
+					{
+						\caption{.}\label{fig::kmeans_2}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption*{(i). Visualization of K-means results.}
+			}
+			\ffigbox[\FBwidth]
+			{
+				\begin{subfloatrow}[2]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.48\textwidth]{../images/vizualization/spectral_clus_7_1.eps}}
+					}
+					{
+						\caption{.}\label{fig::spectral_1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.48\textwidth]{../images/vizualization/spectral_clus_7_2.eps}}
+					}
+					{
+						\caption{.}\label{fig::spectral_2}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption*{(ii). Visualization of Spectral clustering results.}
+			}
+		}
+		{
+			\caption{\label{fig::clust_viz} Visualization of \textit{PCA} reduced clusters: we specified for both methods $7$ clusters.}
+		}
+	\end{figure}
 
 	\subsection{Classification results:}
 
 	The classification pipeline is subdivided into two phases:
 
 	\begin{itemize}
-		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified an can be determined also by the operator;
-		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: 'None', 'Building error', 'Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in . We can also observe how facet relations play a big role in the classification.
+		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in table.~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using $1000$ $4$ deep Random Forests as a classifier.
+
+		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: 'None', 'Building error', 'Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in figure.~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in .
 	\end{itemize}
+
+	\begin{table}[H]
+		\caption{\label{tab::binary_rf_1000_4}Binary classification results using a $1000$ $4$ deep Random Forests.}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Class statistics & \multicolumn{2}{|c|}{[$11.55$\%, $88.45$\%]} \\
+			\hline
+			\multicolumn{3}{|c|}{Cross validation results}\\
+			\hline
+			Metric & max & min \\
+			 \hline
+			train scores & $1.000$ & $0.9911$ \\
+			 \hline
+			fit time & $1.779$ secs & $1.693$ secs \\
+			 \hline
+			test scores & $1.000$ & $0.8775$\\
+			 \hline
+			score time & $0.2507$ secs & $2020$ secs\\
+			 \hline
+		\end{tabular}
+	\end{table}
+
+	\begin{figure}[H]
+		\ffigbox{
+			\ffigbox[\FBwidth]{
+				\begin{subfloatrow}[1]
+					\captionsetup{labelformat=brace, justification=raggedright}
+						\fbox{\includegraphics[width=.75\textwidth]{../images/classification/rf_geom_depth_nbr50}}
+				\end{subfloatrow}
+			}
+			{
+				\caption{\label{fig::rf_geom}(i). Visualization of \textit{Random Forest} results on geometric features.}
+			}
+			\ffigbox[\FBwidth]{
+				\begin{subfloatrow}[1]
+					\captionsetup{labelformat=brace, justification=raggedright}
+						\fbox{\includegraphics[width=.75\textwidth]{../images/classification/rf_geom_altim_depth_nbr25}}
+				\end{subfloatrow}
+			}
+			{
+				\caption{\label{fig::rf_fused}(ii). Visualization of \textit{Random Forest} results on fused features.}
+			}
+			\ffigbox[\FBwidth]{
+				\begin{subfloatrow}[1]
+					\captionsetup{labelformat=brace, justification=raggedright}
+						\fbox{\includegraphics[width=.75\textwidth]{../images/classification/svm_C10pgo5_20_gamma_10pgo5_200}}
+				\end{subfloatrow}
+			}
+			{
+				\caption{\label{fig::svm}(iii). Visualization of \textit{SVM} results.}
+			}
+		}
+		{
+			\caption{\label{fig::class_viz} Visualization of Cross validated coarse classification scores.}
+		}
+	\end{figure}
 
 	The work is still at its begining. I need to classify now on subclasses and try to link the results back to real building in QGIS.
 
