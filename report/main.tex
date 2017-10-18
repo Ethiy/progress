@@ -264,21 +264,21 @@
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_1.eps}}
 					}
 					{
-						\caption{.}\label{fig::geom_1}
+						\caption{We can see strips like structure of data.}\label{fig::geom_1}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_2.eps}}
 					}
 					{
-						\caption{.}\label{fig::geom_2}
+						\caption{We cannot see much in this direction.}\label{fig::geom_2}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/geom_feat_3.eps}}
 					}
 					{
-						\caption{.}\label{fig::geom_3}
+						\caption{We can observe some local structures but nothing global.}\label{fig::geom_3}
 					}
 				\end{subfloatrow}
 			}
@@ -294,21 +294,21 @@
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_1.eps}}
 					}
 					{
-						\caption{.}\label{fig::alti_1}
+						\caption{We can see how the classes are disposed in halo like structures.}\label{fig::alti_1}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_2.eps}}
 					}
 					{
-						\caption{.}\label{fig::alti_2}
+						\caption{This take confirms the fact that `None' errors are in the center followed by `Facet' errors and `Building' erros at last.}\label{fig::alti_2}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/alti_feat_3.eps}}
 					}
 					{
-						\caption{.}\label{fig::alti_3}
+						\caption{We can see clearly the halo like structures.}\label{fig::alti_3}
 					}
 				\end{subfloatrow}
 			}
@@ -324,21 +324,21 @@
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_1.eps}}
 					}
 					{
-						\caption{.}\label{fig::fused_1}
+						\caption{We keep the same disposition of classes as in altimetric features.}\label{fig::fused_1}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_2.eps}}
 					}
 					{
-						\caption{.}\label{fig::fused_2}
+						\caption{The same halos as in figure.~\ref{fig::pca_viz} -- (ii) -- ~\ref{fig::alti_3} but more compact.}\label{fig::fused_2}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_3.eps}}
 					}
 					{
-						\caption{.}\label{fig::fused_3}
+						\caption{The same forms as in figure.~\ref{fig::pca_viz} -- (ii) -- ~\ref{fig::alti_2}.}\label{fig::fused_3}
 					}
 				\end{subfloatrow}
 			}
@@ -414,7 +414,7 @@
 	\begin{itemize}
 		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in table.~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using $1000$ $4$ deep Random Forests as a classifier.
 
-		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: 'None', 'Building error', 'Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in figure.~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in .
+		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in figure.~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in figure~\ref{fig::feat_import}.
 	\end{itemize}
 
 	\begin{table}[H]
@@ -433,7 +433,7 @@
 			 \hline
 			test scores & $1.000$ & $0.8775$\\
 			 \hline
-			score time & $0.2507$ secs & $2020$ secs\\
+			score time & $0.2507$ secs & $0.2020$ secs\\
 			 \hline
 		\end{tabular}
 	\end{table}
@@ -447,7 +447,7 @@
 				\end{subfloatrow}
 			}
 			{
-				\caption{\label{fig::rf_geom}(i). Visualization of \textit{Random Forest} results on geometric features.}
+				\caption*{(i). Visualization of \textit{Random Forest} results on geometric features.}
 			}
 			\ffigbox[\FBwidth]{
 				\begin{subfloatrow}[1]
@@ -456,7 +456,7 @@
 				\end{subfloatrow}
 			}
 			{
-				\caption{\label{fig::rf_fused}(ii). Visualization of \textit{Random Forest} results on fused features.}
+				\caption*{(ii). Visualization of \textit{Random Forest} results on fused features.}
 			}
 			\ffigbox[\FBwidth]{
 				\begin{subfloatrow}[1]
@@ -465,11 +465,23 @@
 				\end{subfloatrow}
 			}
 			{
-				\caption{\label{fig::svm}(iii). Visualization of \textit{SVM} results.}
+				\caption*{(iii). Visualization of \textit{SVM} results.}
 			}
 		}
 		{
 			\caption{\label{fig::class_viz} Visualization of Cross validated coarse classification scores.}
+		}
+	\end{figure}
+
+	\begin{figure}[H]
+		\ffigbox[\FBwidth]{
+			\begin{subfloatrow}[1]
+				\captionsetup{labelformat=brace, justification=raggedright}
+				\fbox{\includegraphics[width=.75\textwidth]{../images/classification/feat_importance_rf}}
+			\end{subfloatrow}
+		}
+		{
+			\caption{\label{fig::feat_import} Pie chart visualizing feature importance.}
 		}
 	\end{figure}
 
