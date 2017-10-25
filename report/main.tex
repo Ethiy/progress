@@ -3,25 +3,34 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
-\usepackage{csquotes}
-
 \usepackage{hyperref}
 
 \usepackage{standalone}
 
-\usepackage{lscape}
+\usepackage{rotating}
 
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{subfig}
-\usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing}
 \usepackage{floatrow}
 \captionsetup{labelsep=period}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+\usepackage{array}
+\newcolumntype{x}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{tabulary}
+\usepackage{booktabs}
+
+\usepackage{enumerate}
 
 \usepackage{amsmath}
 
 \usepackage{fullpage}
+
+\newcounter{SubFigCounter}
+\setcounter{SubFigCounter}{1}
 
 \begin{document}
 	\begin{centering}
@@ -35,20 +44,46 @@
 	\end{centering}
 
 
-	\section{The Dataset:}
-	\subsection{Considerations:}
+	\section{The Dataset}
 ~\\
 
-	We have decided earlier in June to work on Nantes and Dijon in addition to
-	Elancourt. As I explained later, the $3DS$ data for these regions are not
-	well formated so that I can retrieve the building entities. In order to
-	establish first a whole pipeline. I will deal with those regions later using
-	the $CityGML$ data. In consequence, I will continue to work on Elancourt
-	only, for now.\\
+	We dropped off \textit{Nantes} and \textit{Dijon} for the moment, as the \textit{3DS} scenes are not well formated. We will take care of these once we have a simple, not too time consuming, solution to read the \textit{cityGML} files. In consequence, We are focusing, right now, on \href{https://www.google.fr/maps/place/%C3%89lancourt/@48.7781732,1.9536264,5868m/data=!3m1!1e3!4m13!1m7!3m6!1s0x47e68370e965167b:0x705d83a4167c877c!2s%C3%89lancourt!3b1!8m2!3d48.782907!4d1.960077!3m4!1s0x47e68370e965167b:0x705d83a4167c877c!8m2!3d48.782907!4d1.960077}{\textit{Elancourt}}.\\
 
-	I have also relabelled the zone I had labelled before. That is due to the fact
-	that the taxonomy has evolved during the annotation. I have used $QGIS$ to
-	annotate buildings' projected facets based on errors they showed.\\
+	We describe fully the dataset used for this study in the next subsection.
+
+	\subsection{Description}
+~\\
+
+	We have around $3,78\text{ K}m^2$ of reconstructed area --- \textit{c.f.} Figure~\ref{fig::snaps}. The $3D$ buildings are obtained by an industrialized version of the \textit{Bati3D} method~\cite{durupt2006automatic, taillandier2004automatic}. In order to qualify the urban scene, we have also aquirred the corresponding \textit{DSM}s --- Figure~\ref{fig::errors_sample} --- and \textit{Orthoimages} --- Figure~\ref{fig::ortho}.
+
+	\thisfloatsetup{heightadjust=object}
+	\begin{figure}[H]
+		\begin{minipage}[c]{\textwidth}
+			\ffigbox[\FBwidth]
+			{
+				\begin{subfloatrow}[2]
+					\captionsetup{labelformat=brace, justification=raggedright}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.45\textwidth]{../images/raster/snapshot_1}}
+					}
+					{
+						\caption{Snapshot of the 3D scene.}\label{fig::snap1}
+					}
+					\ffigbox[\FBwidth]
+					{
+						\fbox{\includegraphics[width=.45\textwidth]{../images/raster/snapshot_2}}
+					}
+					{
+						\caption{Snapshot of the 3D scene.}\label{fig::snap2}
+					}
+				\end{subfloatrow}
+			}
+			{
+				\caption{\label{fig::snaps} Snapshot of the annotated scene.}
+			}
+		\end{minipage}
+	\end{figure}
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]
@@ -58,7 +93,7 @@
 				\captionsetup{labelformat=brace, justification=raggedright}
 				\ffigbox[\FBwidth]
 				{
-					\fbox{\includegraphics[width=.29\textwidth]{../images/raster/snapshot00}}
+					\fbox{\includegraphics[width=.29\textwidth]{../images/raster/snapshot_1}}
 				}
 				{
 					\caption{Snapshot of the 3D scene.}\label{fig::snapshot}
@@ -84,49 +119,68 @@
 		}
 	\end{figure}
 
-	\subsection{Annotated errors:}
+	\subsection{Annotated errors}
 ~\\
 
+	The taxonomy has evolved from the one proposed in earlier work~\cite{michelin2013quality}. The high level --- LoD based --- discrimination matured during the manual annotation into three metaclasses. Each one of these metaclasses is itself subdivided into errors. The errors are chosen to represent atomic flaws, in order to keep the taxonomy stable enough in case we expand to other regions. In fact, in case we stumble upon new cases we can feed each metaclass by corresponding erros. Multiple errors can alter a single building. The metaclasses are chosen to correlate to LoD levels: we estimate that this reprentation will not evolve further in the future.
 
-	The errors have been subdivided, based on the labelling, into three classes:
+	We proceed now to descibe, in full detail, these classes:
 
-	\begin{itemize}
-		\item[-] Unqualified Building Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (i).): Concerns the buildings that will not
-		be taken into consideration,
-		\item[-] Building Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (ii).):
-		encompasses the errors that affect the whole building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
-		\item[-] Facet Errors (\textit{c.f.} figure.~\ref{fig::samples} -- (iii).):
-		concerns errors affecting only a facet.
-	\end{itemize}
+	\begin{enumerate}[(i)]
+		\item Unqualified Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::unq_bul}): buildings will not be taken into consideration, since we know before hand that they are not taken into account by the reconstruction method:
+		\item Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::bul_err}): encompasses the errors that affect the whole building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
+		\item Facet Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::fac_err}): concerns errors affecting only a facet.
+	\end{enumerate}
 
+	The errors are summarized into a mindmap --- \textit{c.f.} Figure~\ref{fig::mindmap_errors}.
 
-	In table.~\ref{tab::label_stats} we present some statistics over the labelled dataset (\textit{c.f.} figure.~\ref{fig::dataset}) comprizing $502$ buildings:
+	\begin{sidewaysfigure}[p]
+		\begin{center}
+			\includestandalone[mode=buildnew, scale=.78]{mind_map}
+			\caption{\label{fig::mindmap_errors} Mind map summarizing the errors encountered during annotation.}
+		\end{center}
+	\end{sidewaysfigure}
 
-	\begin{table}[H]
+	In Table~\ref{tab::label_stats} we present some statistics over the labelled dataset (\textit{c.f.} Figure~\ref{fig::dataset}) comprizing $502$ buildings:
+
+	\begin{sidewaystable}[H]
 		\centering
 		\caption{\label{tab::label_stats} Label statistics over the $502$ building dataset.}
-		\begin{tabular}{|c|c|c|p{2cm}|p{2cm}|}
-			\hline
-			\multicolumn{1}{|l|}{Error Class}      & Ratio             & Sub Classes & Ratio among class errors & Ratio among all buildings \\ \hline
-			\multirow{4}{*}{Unqualified Buildings} & \multirow{4}{*}{$0.0876$} & Half Building & $0.8636$ & $0.0757$ \\ \cline{3-5}
-				&                   & Changed Building & $0.0455$ & $0.0040$ \\ \cline{3-5}
-				&                   & Occlusion & $0.0455$ & $0.0040$ \\ \cline{3-5}
-				&                   & Unknown & $0.0455$ & $0.0040$ \\ \hline
-			\hline
-			\multirow{4}{*}{Building Error} & \multirow{4}{*}{$0.2408$} & Over Segmentation & $0.1365$ & $0.0328$\\ \cline{3-5}
-				&                   & Under Segmentation & $0.4177$ & $0.1006$ \\ \cline{3-5}
-				&                   & Footprint & $0.4839$ & $0.1165$ \\ \cline{3-5}
-				&                   & Altimetric & $0.0165$ & $0.0040$ \\ \hline
-      \hline
-			\multirow{4}{*}{Facet Errors} & \multirow{4}{*}{$0.81657$} & Over Segmentation & $0.8830$ & $0.7203$ \\ \cline{3-5}
-				&                   & Under Segmentation & $0.0842$ & $0.0687$ \\ \cline{3-5}
-				&                   & Mis Segmentation & $0.0806$ & $0.0657$ \\ \cline{3-5}
-				&                   & Slope & $0.0327$ & $0.0267$ \\ \hline
+		\begin{tabular}{x{4cm} | x{3cm} | x{3cm} | x{3cm} | x{3cm}}
+			\toprule
+			\multicolumn{1}{c|}{\textbf{Error Class}} & \textbf{Occurence probability} & \textbf{Subclass} & \textbf{Class conditionnal occurence probability} & \textbf{Absolute occurence probability} \\
+			\midrule
+			\multirow{4}{*}{Unqualified Buildings} & \multirow{4}{*}{$0.0876$} & Half Building & $0.8636$ & $0.0757$ \\
+			\cline{3-5}
+				&                   & Changed Building & $0.0455$ & $0.0040$ \\
+			\cline{3-5}
+				&                   & Occlusion & $0.0455$ & $0.0040$ \\
+			\cline{3-5}
+				&                   & Unknown & $0.0455$ & $0.0040$ \\
+			\midrule
+			\midrule
+			\multirow{4}{*}{Building Error} & \multirow{4}{*}{$0.2408$} & Over Segmentation & $0.1365$ & $0.0328$\\
+			\cline{3-5}
+				&                   & Under Segmentation & $0.4177$ & $0.1006$ \\
+			\cline{3-5}
+				&                   & Footprint & $0.4839$ & $0.1165$ \\
+			\cline{3-5}
+				&                   & Altimetric & $0.0165$ & $0.0040$ \\
+			\midrule
+			\midrule
+			\multirow{4}{*}{Facet Errors} & \multirow{4}{*}{$0.81657$} & Over Segmentation & $0.8830$ & $0.7203$ \\
+			\cline{3-5}
+				&                   & Under Segmentation & $0.0842$ & $0.0687$ \\
+			\cline{3-5}
+				&                   & Mis Segmentation & $0.0806$ & $0.0657$ \\
+			\cline{3-5}
+				&                   & Slope & $0.0327$ & $0.0267$ \\
+			\bottomrule
 		\end{tabular}
-	\end{table}
+	\end{sidewaystable}
 
 	\thisfloatsetup{heightadjust=object}
-	\begin{figure}
+	\begin{figure}[H]
 		\begin{center}
 			\ffigbox{
 				\ffigbox[\FBwidth]{
@@ -139,7 +193,11 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{(i). Samples of Unqualified building errors.}
+					\renewcommand\figurename{}
+					\renewcommand{\thefigure}{(\roman{SubFigCounter})}
+
+					\caption{Unqualified building errors samples.}\label{fig::unq_bul}
+					\refstepcounter{SubFigCounter}
 				}
 				\ffigbox[\FBwidth]
 				{
@@ -152,7 +210,11 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{(ii). Samples of Building errors.}
+					\renewcommand\figurename{}
+					\renewcommand{\thefigure}{(\roman{SubFigCounter})}
+
+					\caption{Building errors samples.}\label{fig::bul_err}
+					\refstepcounter{SubFigCounter}
 				}
 				\ffigbox[\FBwidth]
 				{
@@ -165,31 +227,27 @@
 					\end{subfloatrow}
 				}
 				{
-					\caption*{(iii). Samples of Facet errors.}
+					\renewcommand\figurename{}
+					\renewcommand{\thefigure}{(\roman{SubFigCounter})}
+
+					\caption{Facet errors samples.}\label{fig::fac_err}
+					\refstepcounter{SubFigCounter}
 				}
 			}
 			{
-				\caption{\label{fig::samples}Illustration of errors per class.}
+				\addtocounter{figure}{-3}
+				\caption{\label{fig::samples}Error taxonomy illustration.}
 			}
 		\end{center}
 	\end{figure}
 
-	\begin{landscape}
-		\begin{figure}
-			\begin{center}
-				\includestandalone[mode=buildnew, scale=.78]{mind_map}
-				\caption{\label{fig::mindmap_errors} Mind map summarizing the errors encountered during annotation.}
-			\end{center}
-		\end{figure}
-	\end{landscape}
-
-	\section{Features:}
+	\section{Features}
 ~\\
 
-	\subsection{Low level features:}
+	\subsection{Low level features}
 
 
-	The first step of computing features was to extract low level features and expose them so that I can engineer sophisticated features to train the classifiers on. In fact, For each building, I computed the facet adjacency graph --- \textit{c.f.} figure.~\ref{fig::geom_features} --- with meaningful information for each facet. I also computed the orthoprojection\footnote{Projection on the Plane $(O, \vec{\imath}, \vec{\jmath})$} of buildings and stored it in vectorial --- \textit{c.f.} figure.~\ref{fig::vector} --- and raster mode --- \textit{c.f.} figure.~\ref{fig::raster}.\\
+	The first step of computing features was to extract low level features and expose them so that I can engineer sophisticated features to train the classifiers on. In fact, For each building, I computed the facet adjacency graph --- \textit{c.f.} Figure~\ref{fig::geom_features} --- with meaningful information for each facet. I also computed the orthoprojection\footnote{Projection on the Plane $(O, \vec{\imath}, \vec{\jmath})$} of buildings and stored it in vectorial --- \textit{c.f.} Figure~\ref{fig::vector} --- and raster mode --- \textit{c.f.} Figure~\ref{fig::raster}.\\
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]
@@ -213,14 +271,14 @@
 	\end{figure}
 	\clearpage
 
-	\subsection{Mid level features:}
+	\subsection{Mid level features}
 ~\\
 
 	The previous features are raw and not useful for classification. As a first
 	step, in order to establish a baseline for the qualification, I choose simple
 	features that can be classed as follows:
 	\begin{itemize}
-		\item[(i).] Geometric --- or intrinsic --- features: based on the graph adjacency features and the vector orthoprojections, I tried the feature vector per building in equation.~\ref{eq::feature_vec}:
+		\item[(i).] Geometric --- or intrinsic --- features: based on the graph adjacency features and the vector orthoprojections, I tried the feature vector per building in equation~\ref{eq::feature_vec}:
 		\begin{equation}\label{eq::feature_vec}
 			\text{feature\_vector} = \begin{bmatrix}
 				statistics(degree_{facets})\\
@@ -245,11 +303,11 @@
 
 	For now, I have focused on geometric features and altimetic features to complete the whole classification pipeline.The graph kernel methods and ortho image features are left for later. I should also grow my labelled datasets and invistigate other regions by active learning: transforming the pipeline to an active setting.
 
-	\section{Experiments:}
+	\section{Experiments}
 ~\\
-	\subsection{Features visualization:}
+	\subsection{Features visualization}
 
-	I tried visualizing features by reducing their dimensions using PCA. In figure.~\ref{fig::pca_viz}, we can see in snapshots what looks like structures in data.
+	I tried visualizing features by reducing their dimensions using PCA. In Figure~\ref{fig::pca_viz}, we can see in snapshots what looks like structures in data.
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]
@@ -331,14 +389,14 @@
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_2.eps}}
 					}
 					{
-						\caption{The same halos as in figure.~\ref{fig::pca_viz} -- (ii) -- ~\ref{fig::alti_3} but more compact.}\label{fig::fused_2}
+						\caption{The same halos as in Figure~\ref{fig::pca_viz} -- (ii) --~\ref{fig::alti_3} but more compact.}\label{fig::fused_2}
 					}
 					\ffigbox[\FBwidth]
 					{
 						\fbox{\includegraphics[width=.31\textwidth]{../images/vizualization/fused_feat_3.eps}}
 					}
 					{
-						\caption{The same forms as in figure.~\ref{fig::pca_viz} -- (ii) -- ~\ref{fig::alti_2}.}\label{fig::fused_3}
+						\caption{The same forms as in Figure~\ref{fig::pca_viz} -- (ii) --~\ref{fig::alti_2}.}\label{fig::fused_3}
 					}
 				\end{subfloatrow}
 			}
@@ -351,7 +409,7 @@
 		}
 	\end{figure}
 
-	I am trying also to cluster the features in between $9$ --- number of all subclasses --- and $3$ --- number of Coarse classes --- clusters. The idea is to see if features can be interpreted and are well defined or we are overfitting during classification. In figure.~\ref{fig::clust_viz}, we choose 7 clusters. The outliers cause both methods to have clusters with only one element, but otherwise we can see how it can capture coarse structures in data that do not correspond always to defined classes.
+	I am trying also to cluster the features in between $9$ --- number of all subclasses --- and $3$ --- number of Coarse classes --- clusters. The idea is to see if features can be interpreted and are well defined or we are overfitting during classification. In Figure~\ref{fig::clust_viz}, we choose 7 clusters. The outliers cause both methods to have clusters with only one element, but otherwise we can see how it can capture coarse structures in data that do not correspond always to defined classes.
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]
@@ -407,14 +465,14 @@
 		}
 	\end{figure}
 
-	\subsection{Classification results:}
+	\subsection{Classification results}
 
 	The classification pipeline is subdivided into two phases:
 
 	\begin{itemize}
-		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in table.~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using $1000$ $4$ deep Random Forests as a classifier.
+		\item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in Table~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using $1000$ $4$ deep Random Forests as a classifier.
 
-		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in figure.~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in figure~\ref{fig::feat_import}.
+		\item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in Figure~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in Figure~\ref{fig::feat_import}.
 	\end{itemize}
 
 	\begin{table}[H]
@@ -487,12 +545,15 @@
 
 	The work is still at its begining. I need to classify now on subclasses and try to link the results back to real building in QGIS.
 
-	\section*{Attachments:}
+	\section*{Attachments}
 	\begin{itemize}
 		\item[-] You can checkout the preprocessing code on
 		\href{https://github.com/ethiy/proj.city}{Github}.
 		\item[-] You can also check the feature extraction and classification code
 		\href{https://github.com/ethiy/qualcity}{here}.
 	\end{itemize}
+
+	\bibliographystyle{apalike}
+	\bibliography{references}
 
 \end{document}
