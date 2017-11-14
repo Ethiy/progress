@@ -1,0 +1,32 @@
+\documentclass[tikz,border=5pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+
+\usepackage[T1]{fontenc}
+
+\begin{document}
+    \pgfdeclarelayer{background}
+    \pgfdeclarelayer{foreground}
+    \pgfsetlayers{background,main,foreground}
+
+    \tikzstyle{sensor}=[draw, fill=blue!20, text width=4em, text centered, minimum height=2em]
+    \tikzstyle{data}=[draw, text centered, minimum height=2.5em, drop shadow, rounded corners]
+
+
+    \def\blockdist{2.3}
+    \def\edgedist{2.5}
+
+    \begin{tikzpicture}
+        \node (pt_cld) [data, fill={rgb,255:red,101;green,203;blue,94}, text width=7em] {Point Clouds, \textbf{D}igital \textbf{S}urface \textbf{M}odel \dots};
+
+        \path (pt_cld.west)+(-3,2) node (ort_img) [data, text width=2cm, fill={rgb,255:red,239;green,230;blue,28}] {Oriented Images};
+        \path (ort_img.west)+(-4,0) node (camera) [sensor] {Camera};
+        \path (pt_cld.west)+(-8.1,0) node (lidar) [sensor] {Lidar};
+        \path (pt_cld.east)+(3.5,0) node (surf_rec) [data, text width=2.5cm, fill={rgb,255:red,101;green,203;blue,94}] {Reconstructed Surfaces};
+        \path (surf_rec.east)+(3,0) node (urb_model) [data, text width=2cm, fill=purple!50] {3D Urban Models};
+
+        \draw[->] (camera.east) edge (ort_img.west);
+        \draw[->] (ort_img.east) edge (pc_cld.west);
+    \end{tikzpicture}
+\end{document}
