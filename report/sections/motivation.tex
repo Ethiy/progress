@@ -1,0 +1,34 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+    \section{Motivation}
+
+    Urban model have a wide application range from planning to simulation or visualization. Indeed, $3D$ city models can be used to efficiently plan cell phone tower constructions. It can be also handy in run-off water simulations in order to design flood proof cities and prevent massive damages during natural disasters. In Table~\ref{tab::3d_applications}, we cite some of the main applications of these models.
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{c c c}
+                Planing & Simulation & Visualization\\
+            \end{tabular}
+            \caption{\label{tab::3d_applications} Some of the main thematic applications of $3D$ urban reconstruction\cite{Scholze2002}.}
+        \end{center}
+    \end{table}
+
+    In consequence, $3D$ urban reconstruction is a very active research subject. It focuses the efforts many research communities: Computer Vision, Photogrametry and Remote Sensing, Computational Graphics and Urban Planing~\cite{Musialski2012}. Industry is interested also by this domain. In fact, from entertainement companies to defence corporations, any advance in the research would impact greatly on their products.
+
+    In spite of efforts in the research community, urban modelling widely involves human interaction~\cite{Musialski2012}. In fact, even though automatic reconstruction models are seemless, they require human operator interaction so as to control the quality of the final output. The laborious human correction process actually require a tedious amount of time, which enticies the non-scalability of the overall process. It is then paramount that we procure a qualification method that can easily recognize an error in the $3D$ model and potentially recommend, accordingly, a set of simple actions to the operator. Such a qualification process can also be harnessed in order to qualify whole reconstruction processes on different regions knowing the coveted degree of details.
+
+    Building reccontruction is arguably the most strenuous task in urban modelling. A multitude of qualification methods were proposed early in the new millenium. Most of which rely on the presence of reference data that the output models are compared against.
+    \begin{itemize}
+        \item ~\cite{Akca2010}
+        \item ~\cite{Zeng2014}
+        \item ~\cite{Kaartinen2005}
+    \end{itemize}
+    Reference models are very expensive to come by and are not an option if one wants to qualify a whole urban scene. Even if we suppose that we can generalize the quality by acquiring references of representative buildings, one has to study the input dataset and predict the quality of the model. The qualification process can be, in consequence, undertaken under a different angle. One can predict the quality by looking into the intrensic building model characteristics.
+    \begin{itemize}
+        \item ~\cite{OudeElberink2010}
+        \item ~\cite{Boudet2006}
+        \item ~\cite{michelin2013quality}
+    \end{itemize}
+
+\end{document}
