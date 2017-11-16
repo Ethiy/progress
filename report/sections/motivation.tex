@@ -33,13 +33,14 @@
 
     Building reccontruction is arguably the most strenuous task in urban modelling. A multitude of qualification methods were proposed early in the new millenium. Most of which rely on the presence of reference data that the output models are compared against.
     \begin{itemize}
-        \item ~\cite{Akca2010}
-        \item ~\cite{Zeng2014}
-        \item ~\cite{Kaartinen2005}
-        \item ~\cite{Voegtle2003}
-        \item ~\cite{Schuster2003}
+        \item ~\cite{Henricsson1997}: completeness, geometric accuracy and shape dissimilarity.
+        \item ~\cite{Akca2010}: reference data == point clouds; runs LS3D for surface matching; identifies three errors: systematic, gross and random.
+        \item ~\cite{Zeng2014}: multicriteria evaluation based on volume, surface and point components; Volume: percentage of volume discrepency, Surface: SPHARM expansion, Point: positionnal accuracy at feature points (corners, centroids).
+        \item ~\cite{Kaartinen2005}: Reference points were used to analyse the accuracy of the location (single point measurement), length (distance between two points) and roof inclination; Mean squared error, minimum, maximum, medium, and interquartile range (25th and 75th quartiles)
+        \item ~\cite{Voegtle2003}: factors for laser data: accuracy, quantization, segmentation of planes and generalization of planar meshes; Measures: positioning accuracy, height accuracy; Reference data: geodetic measurements with accuracy $ \vert \sigma_{xyz} \vert \leq 0.05 m $; Positionning: discretization or area based approches. Height: discretization.
+        \item ~\cite{Schuster2003}: General framework: Comparing to reference data or other independently obtained models; accuracy of data and degree of generalization; 3D reference data hard => evaluation with 2D reference data.
     \end{itemize}
-    Reference models are very expensive to come by and are not an option if one wants to qualify a whole urban scene. Even if we suppose that we can generalize the quality by acquiring references of representative buildings, one has to study the input dataset and predict the quality of the model. The qualification process can be, in consequence, undertaken under a different angle. One can predict the quality by looking into the intrensic building model characteristics.
+    Reference models are very expensive to come by and are not an option if one wants to qualify a whole urban scene. Even if we suppose that we can generalize the quality by acquiring references of representative buildings, one has to study the input dataset and extract those samples that yield enough generalization power to predict the quality of the whole scene. This being said, the qualification process can be undertaken under a different perspective. One can predict the quality by looking into the intrensic building model characteristics: we would not need to produce any reference data to assess the quality of a reconstruction.
     \begin{itemize}
         \item ~\cite{OudeElberink2010}
         \item ~\cite{Boudet2006}
