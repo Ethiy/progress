@@ -1,13 +1,15 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-    We dropped off \textit{Nantes} and \textit{Dijon} for the moment, as the \textit{3DS} scenes are not well formated. We will take care of these once we have a simple, not too time consuming, solution to read the \textit{cityGML} files. In consequence, We are focusing, right now, on \href{https://www.google.fr/maps/place/%C3%89lancourt/@48.7781732,1.9536264,5868m/data=!3m1!1e3!4m13!1m7!3m6!1s0x47e68370e965167b:0x705d83a4167c877c!2s%C3%89lancourt!3b1!8m2!3d48.782907!4d1.960077!3m4!1s0x47e68370e965167b:0x705d83a4167c877c!8m2!3d48.782907!4d1.960077}{\textit{Elancourt}}.\\
+    We dropped off \textit{Nantes} and \textit{Dijon} for the moment, as the \textit{3DS} scenes are not well formated. We will take care of these once we have a simple, not too time consuming, solution to read the \textit{cityGML} files: the easiest for now is to convert \textit{cityGML} to \textit{OBJ} file and write the corrspponding file handler. In consequence, We are focusing, right now, on \href{https://www.google.fr/maps/place/%C3%89lancourt/@48.7781732,1.9536264,5868m/data=!3m1!1e3!4m13!1m7!3m6!1s0x47e68370e965167b:0x705d83a4167c877c!2s%C3%89lancourt!3b1!8m2!3d48.782907!4d1.960077!3m4!1s0x47e68370e965167b:0x705d83a4167c877c!8m2!3d48.782907!4d1.960077}{\textit{Elancourt}}.\\
 
-    We describe fully the dataset used for this study in the next subsection.
+    We will describe fully the studied dataset used hereafter.
 
     \subsection{Description}
 
-    We have around $3,78\text{ K}m^2$ of reconstructed area --- \textit{c.f.} Figure~\ref{fig::snaps}. The $3D$ buildings are obtained by an industrialized version of the \textit{Bati3D} method~\cite{durupt2006automatic, taillandier2004automatic}. In order to qualify the urban scene, we have also aquirred the corresponding \textit{DSM}s --- Figure~\ref{fig::errors_sample} --- and \textit{Orthoimages} --- Figure~\ref{fig::ortho}.
+    Figure~\ref{fig::snaps} represents $.2\text{ K}m^2$ of reconstructed area that we annotated. The $3D$ buildings are obtained by \textit{Bati3D}; a home made industrialized version of~\cite{durupt2006automatic, taillandier2004automatic, taillandier2005}. Actually, the original method~\cite{taillandier2004automatic} solves a maximal clique problem equivalent to possible shapes of buildings obtained from the extracted planar primitives. The result is then adapted by applying geometric constraints. Since the clique problem is NP-complete, One solution is to reduce the search space by applying constraints early on~\cite{taillandier2005}. Another solution was to relax the constraints and aplying the RANSAC algorithm~\cite{Fischler:1981:RSC:358669.358692}.\\
+
+    In addition to the \textit{Bati3D} outputs that we ought to qualify, we have also aquirred the corresponding \textit{DSM}s --- Figure~\ref{fig::dsm} --- and \textit{Orthoimages} --- Figure~\ref{fig::ortho}.
 
     \thisfloatsetup{heightadjust=object}
     \begin{figure}[H]
@@ -18,22 +20,22 @@
                     \captionsetup{labelformat=brace, justification=raggedright}
                     \ffigbox[\FBwidth]
                     {
-                        \fbox{\includegraphics[width=.45\textwidth]{../images/raster/snapshot_1}}
+                        \includegraphics[width=.45\textwidth]{../images/raster/snapshot_1}
                     }
                     {
-                        \caption{Snapshot of the 3D scene.}\label{fig::snap1}
+                        \caption{Close up snapshot of the 3D scene.}\label{fig::snap1}
                     }
                     \ffigbox[\FBwidth]
                     {
-                        \fbox{\includegraphics[width=.45\textwidth]{../images/raster/snapshot_2}}
+                        \includegraphics[width=.45\textwidth]{../images/raster/snapshot_2}
                     }
                     {
-                        \caption{Snapshot of the 3D scene.}\label{fig::snap2}
+                        \caption{Perspective snapshot of the 3D scene.}\label{fig::snap2}
                     }
                 \end{subfloatrow}
             }
             {
-                \caption{\label{fig::snaps} Snapshot of the annotated scene.}
+                \caption{\label{fig::snaps} The annotated 3D scene.}
             }
         \end{minipage}
     \end{figure}
@@ -42,33 +44,25 @@
     \begin{figure}[H]
         \ffigbox[\FBwidth]
         {
-            \begin{subfloatrow}[3]
-                \captionsetup{labelformat=brace, justification=raggedright}
+            \begin{subfloatrow}[2]
                 \ffigbox[\FBwidth]
                 {
-                    \fbox{\includegraphics[width=.29\textwidth]{../images/raster/snapshot_1}}
-                }
-                {
-                    \caption{Snapshot of the 3D scene.}\label{fig::snapshot}
-                }
-                \ffigbox[\FBwidth]
-                {
-                    \fbox{\includegraphics[width=.285\textwidth]{../images/raster/orthoimage}}
+                    \includegraphics[width=.40\textwidth]{../images/raster/orthoimage}
                 }
                 {
                     \caption{Orthoimage corresponding to the scene.}\label{fig::ortho}
                 }
                 \ffigbox[\FBwidth]
                 {
-                    \fbox{\includegraphics[width=.33\textwidth]{../images/raster/errors_sample}}
+                    \includegraphics[width=.46\textwidth]{../images/raster/dsm}
                 }
                 {
-                    \caption{Labelled errors sample.}\label{fig::errors_sample}
+                    \caption{.}\label{fig::dsm}
                 }
             \end{subfloatrow}
         }
         {
-            \caption{\label{fig::dataset} Labelled dataset.}
+            \caption{\label{fig::dataset} Data used in the qualification process.}
         }
     \end{figure}
 
@@ -76,7 +70,7 @@
 
     The taxonomy has evolved from the one proposed in earlier work~\cite{michelin2013quality}. The high level --- LoD based --- discrimination matured during the manual annotation into three metaclasses. Each one of these metaclasses is itself subdivided into errors. The errors are chosen to represent atomic flaws, in order to keep the taxonomy stable enough in case we expand to other regions. In fact, in case we stumble upon new cases we can feed each metaclass by corresponding erros. Multiple errors can alter a single building. The metaclasses are chosen to correlate to LoD levels: we estimate that this reprentation will not evolve further in the future.
 
-    We proceed now to descibe, in full detail, these classes:
+    We proceed now to descibing, in full detail, these classes:
 
     \begin{enumerate}[(i)]
         \item Unqualified Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::unq_bul}): buildings will not be taken into consideration, since we know before hand that they are not taken into account by the reconstruction method:
