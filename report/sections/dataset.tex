@@ -9,7 +9,7 @@
 
     Figure~\ref{fig::snaps} represents $.2\text{ K}m^2$ of reconstructed area that we annotated. The $3D$ buildings are obtained by \textit{Bati3D}; a home made industrialized version of~\cite{durupt2006automatic, taillandier2004automatic, taillandier2005}. Actually, the original method~\cite{taillandier2004automatic} solves a maximal clique problem equivalent to possible shapes of buildings obtained from the extracted planar primitives. The result is then adapted by applying geometric constraints. Since the clique problem is NP-complete, One solution is to reduce the search space by applying constraints early on~\cite{taillandier2005}. Another solution was to relax the constraints and aplying the RANSAC algorithm~\cite{Fischler:1981:RSC:358669.358692}.\\
 
-    In addition to the \textit{Bati3D} outputs that we ought to qualify, we have also aquirred the corresponding \textit{DSM}s --- Figure~\ref{fig::dsm} --- and \textit{Orthoimages} --- Figure~\ref{fig::ortho}.
+    In addition to the \textit{Bati3D} outputs that we ought to qualify, we have also aquirred the corresponding \textit{Orthoimages} --- Figure~\ref{fig::ortho} --- and \textit{DSM}s --- Figure~\ref{fig::dsm}.
 
     \thisfloatsetup{heightadjust=object}
     \begin{figure}[H]
@@ -57,7 +57,7 @@
                     \includegraphics[width=.46\textwidth]{../images/raster/dsm}
                 }
                 {
-                    \caption{.}\label{fig::dsm}
+                    \caption{Overlapping DSM of the scene.}\label{fig::dsm}
                 }
             \end{subfloatrow}
         }
@@ -68,14 +68,36 @@
 
     \subsection{Annotated errors}
 
-    The taxonomy has evolved from the one proposed in earlier work~\cite{michelin2013quality}. The high level --- LoD based --- discrimination matured during the manual annotation into three metaclasses. Each one of these metaclasses is itself subdivided into errors. The errors are chosen to represent atomic flaws, in order to keep the taxonomy stable enough in case we expand to other regions. In fact, in case we stumble upon new cases we can feed each metaclass by corresponding erros. Multiple errors can alter a single building. The metaclasses are chosen to correlate to LoD levels: we estimate that this reprentation will not evolve further in the future.
+    The taxonomy has evolved from the one proposed in earlier work~\cite{michelin2013quality}. Instead of deciding on the model's likeliness confidence~\cite{Boudet2006}, the previous taxonomy relies on semantic errors identified by a human operator. In this framework, each detected error can have some degree of confidence and can coexist with other errors. The detected error should be helpful for the human operator in order to correct the automatically 3D models.\\
+
+    In this work, the error categorization evolved while confronted to another region. The previous categorization was not stable enough when opting for a different reconstruction method or region, which renders it none scalable. Indeed, the general idea behind the quality assessement automatization is to guaranty independence from the input data and scalability. Hence, a proposed error grammar should be as stable as possible. To that end, the present grammar assembles errors into metaclasses which contain corresponding atomic errors.\\
+
+    The high level --- LoD based --- discrimination matured during the manual annotation into three metaclasses. Each one of these metaclasses is itself subdivided into errors. The errors are chosen to represent atomic flaws, in order to keep the taxonomy stable enough in case we expand to other regions. In fact, in case we stumble upon new cases we can feed each metaclass by corresponding erros. Multiple errors can alter a single building. The metaclasses are chosen to correlate to LoD levels: we estimate that this reprentation will not evolve further in the future.\\
 
     We proceed now to descibing, in full detail, these classes:
 
     \begin{enumerate}[(i)]
         \item Unqualified Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::unq_bul}): buildings will not be taken into consideration, since we know before hand that they are not taken into account by the reconstruction method:
-        \item Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::bul_err}): encompasses the errors that affect the whole building (corrensponds roughly to $LoD0$ and $LoD1$ errors),
-        \item Facet Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::fac_err}): concerns errors affecting only a facet.
+        \begin{itemize}
+            \item Half Building:  only a portion of the building is reconstructed,
+            \item Changed Building:  the building has changed so we cannot qualify it,
+            \item Occlusion:  the building isoccluded by vegetation here,
+            \item Unknown:  Unknownshape that cannot beverified on the ground;
+        \end{itemize}
+        \item Building Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::bul_err}): encompasses the errors that affect the whole building (corrensponds roughly to $LoD0$ and $LoD1$ errors):
+        \begin{itemize}
+            \item Under Segmentation:Two or more buildingsgrouped into one,
+            \item Over segmentation:  Onebuilding segmented into twoor more buildings,
+            \item Footprint:  Wrongbuilding footprint,
+            \item Altitude:  Wrong buildingheight;
+        \end{itemize}
+        \item Facet Errors (\textit{c.f.} Figure~\ref{fig::samples}\ref{fig::fac_err}): concerns errors affecting only a facet:
+        \begin{itemize}
+            \item Under Segmentation: Two facets or more groupedinto one,
+            \item Over segmentation: One facet segemented into two or more facets,
+            \item Inprecise Segmentation: Facet edges do not correspond to real ones,
+            \item Slope:  Wrong facet slope.
+        \end{itemize}
     \end{enumerate}
 
     The errors are summarized into a mindmap --- \textit{c.f.} Figure~\ref{fig::mindmap_errors}.
@@ -186,4 +208,5 @@
             }
         \end{center}
     \end{figure}
+
 \end{document}
