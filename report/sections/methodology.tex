@@ -1,10 +1,15 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-	\subsection{Low level features}
+
+	\section{Features}
+
+	As stated previously, the problem formulation into a classification problem implies that we have to extract features from the input data along with the DSM and Orthoimage. The extracted features will be fed to classifiers in order to train and further predict errors.\\
+
+	\subsection{Raw features}
 
 
-	The first step of computing features was to extract low level features and expose them so that I can engineer sophisticated features to train the classifiers on. In fact, For each building, I computed the facet adjacency graph --- \textit{c.f.} Figure~\ref{fig::geom_features} --- with meaningful information for each facet. I also computed the orthoprojection\footnote{Projection on the Plane $(O, \vec{\imath}, \vec{\jmath})$} of buildings and stored it in vectorial --- \textit{c.f.} Figure~\ref{fig::vector} --- and raster mode --- \textit{c.f.} Figure~\ref{fig::raster}.\\
+	The first step was to extract low level features and expose them so that we can engineer sophisticated ones to train the classifiers on. In fact, For each building,the facet adjacency graph is computed --- \textit{c.f.} Figure~\ref{fig::geom_features} --- with meaningful information for each facet. We also computed the buildings orthoprojection\footnote{Projection on the Plane $(O, \vec{\imath}, \vec{\jmath})$} and stored it in vectorial --- \textit{c.f.} Figure~\ref{fig::vector} --- and raster mode --- \textit{c.f.} Figure~\ref{fig::raster}.\\
 
 	\thisfloatsetup{heightadjust=object}
 	\begin{figure}[H]

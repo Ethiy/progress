@@ -169,29 +169,32 @@
     The classification pipeline is subdivided into two phases:
 
     \begin{itemize}
-        \item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in Table~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using $1000$ $4$ deep Random Forests as a classifier.
+        \item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in Table~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using Random Forests as a classifier with $1000$ trees and $4$ in deepth.
 
         \item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in Figure~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in Figure~\ref{fig::feat_import}.
     \end{itemize}
 
     \begin{table}[H]
-        \caption{\label{tab::binary_rf_1000_4}Binary classification results using a $1000$ $4$ deep Random Forests.}
-        \begin{tabular}{|c|c|c|}
-            \hline
-            Class statistics & \multicolumn{2}{|c|}{[$11.55$\%, $88.45$\%]} \\
-            \hline
-            \multicolumn{3}{|c|}{Cross validation results}\\
-            \hline
-            Metric & max & min \\
-             \hline
+        \caption{\label{tab::binary_rf_1000_4}Binary classification results using a Random Forests (trees: $1000$, depth: $4$).}
+        \begin{tabular}{c c c}
+            \toprule
+             & \textbf{Unqualified buildings} & \textbf{Qualified models} \\
+            \midrule
+            Class statistics & $11.55$\% & $88.45$\% \\
+            \midrule
+            \midrule
+            \multicolumn{3}{c}{\textbf{Cross validation results}}\\
+            \midrule
+            Metric & Max & Min \\
+             \midrule
             train scores & $1.000$ & $0.9911$ \\
-             \hline
+             \midrule
             fit time & $1.779$ secs & $1.693$ secs \\
-             \hline
+             \midrule
             test scores & $1.000$ & $0.8775$\\
-             \hline
+             \midrule
             score time & $0.2507$ secs & $0.2020$ secs\\
-             \hline
+             \bottomrule
         \end{tabular}
     \end{table}
 
@@ -242,5 +245,5 @@
         }
     \end{figure}
 
-    The work is still at its begining. I need to classify now on subclasses and try to link the results back to real building in QGIS\@.
+    We need to classify now on subclasses and try to link the results back to real building in QGIS\@.
 \end{document}
