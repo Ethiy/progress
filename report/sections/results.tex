@@ -240,21 +240,21 @@
 
     \subsection{Classification results}
 
-    The classification pipeline is subdivided into two phases:
+    Two classification pipelines were tested:
 
     \begin{itemize}
-        \item[(i).] Binary classification: the idea is to use geometric features to predict the unqualified builings which are to be discarded. They cannot be classified and can be determined by the operator. We site in Table~\ref{tab::binary_rf_1000_4} the results of a $10$-fold cross validation using Random Forests as a classifier with $1000$ trees and $4$ in deepth.
+        \item[(i).] Binary classification (depth: 0): the idea is to use geometric features to predict the unqualifiable builings which are to be discarded. They cannot be classified and can be determined by the operator. Table~\ref{tab::binary_rf_1000_4} shwos the results of a $10$-fold cross validation using Random Forests as a classifier with $1000$ trees and $4$ in deepth.
 
-        \item[(ii).] Coarse Multi classification: classifies qualified buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in Figure~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in Figure~\ref{fig::feat_import}.
+        \item[(ii).] Coarse Multi classification (depth: 1, hierarchical: True): classifies qualifiable buildings by the error classes: `None', `Building error', `Facet error'. We can observe the results of cross validated \textit{Random Forests} and \textit{SVM} in Figure~\ref{fig::class_viz}. We can also observe how facet relations play a big role in the classification in Figure~\ref{fig::feat_import}.
     \end{itemize}
 
     \begin{table}[H]
         \caption{\label{tab::binary_rf_1000_4}Binary classification results using a Random Forests (trees: $1000$, depth: $4$).}
         \begin{tabular}{c c c}
             \toprule
-             & \textbf{Unqualified buildings} & \textbf{Qualified models} \\
+             & \textbf{Unqualifiable buildings} & \textbf{Qualifiable models} \\
             \midrule
-            Class statistics & $11.55$\% & $88.45$\% \\
+            Occurence & $11.6$\% & $88.4$\% \\
             \midrule
             \midrule
             \multicolumn{3}{c}{\textbf{Cross validation results}}\\
@@ -281,7 +281,7 @@
                 \end{subfloatrow}
             }
             {
-                \caption*{(i). Visualization of \textit{Random Forest} results on geometric features.}
+                \caption*{(i). Visualization of \textit{Random Forest} results on geometric features. x-axis: depth and y_axis $\times 50$ : number of trees.}
             }
             \ffigbox[\FBwidth]{
                 \begin{subfloatrow}[1]
@@ -290,7 +290,7 @@
                 \end{subfloatrow}
             }
             {
-                \caption*{(ii). Visualization of \textit{Random Forest} results on fused features.}
+                \caption*{(ii). Visualization of \textit{Random Forest} results on fused features. x-axis: depth and y-axis $\times 25$: number of trees.}
             }
             \ffigbox[\FBwidth]{
                 \begin{subfloatrow}[1]
@@ -299,7 +299,7 @@
                 \end{subfloatrow}
             }
             {
-                \caption*{(iii). Visualization of \textit{SVM} results.}
+                \caption*{(iii). Visualization of \textit{rbf-kernel SVM} results. $10^{\frac{\text{x-axis}}{5}}$: $C$ and $10^{\frac{\text{y-axis}}{5}}$: $gamma$.
             }
         }
         {
