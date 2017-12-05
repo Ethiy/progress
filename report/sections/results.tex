@@ -2,6 +2,126 @@
 
 \begin{document}
     \section{Experiments}
+
+    \subsection{Problème formulation}
+
+    Based on the error grammar established earlier, a multitude of supervised classification problems can be studied:
+
+
+    The features also can be modularly assembled into one big feature vector that is fed to the classifier.
+
+    \begin{itemize}
+        \item depth: 0
+        \begin{itemize}
+            \item Binary Classification: Qualifiable, Unqualifiable
+        \end{itemize}
+        \item depth: 1
+        \begin{itemize}
+            \item hierarchical: True
+            \begin{itemize}
+                \item LoD\@: 1
+                \begin{itemize}
+                    \item Multiclass\footnote{What is multiclass?} classification: No errors, Building errors
+                \end{itemize}
+                \item LoD\@: 2
+                \begin{itemize}
+                    \item Multiclass classification: No errors, Building errors, Facet errors.
+                \end{itemize}
+            \end{itemize}
+            \item hierarchical: False
+            \begin{itemize}
+                \item LoD\@: 1
+                \begin{itemize}
+                    \item Multilabel\footnote{what is multilabel?} classification: No errors, Building errors
+                \end{itemize}
+                \item LoD\@: 2
+                \begin{itemize}
+                    \item Multilabel classification: No errors, Building errors, Facet errors.
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+        \item depth: 2
+        \begin{itemize}
+            \item hierarchical: True
+            \begin{itemize}
+                \item LoD\@: 1
+                \begin{itemize}
+                    \item Multiclass classification: No errors, Building errors
+                    \begin{itemize}
+                        \item Error: No errors
+                        \item Error: Building errors $\longrightarrow$ Multilabel classification
+                    \end{itemize}
+                \end{itemize}
+                \item LoD\@: 2
+                \begin{itemize}
+                    \item Multiclass classification: No errors, Building errors, Facet errors.
+                    \begin{itemize}
+                        \item Error: No errors
+                        \item Error: Building errors $\longrightarrow$ Multilabel classification
+                        \item Error: Facet errors $\longrightarrow$ Multilabel classification
+                    \end{itemize}
+                \end{itemize}
+            \end{itemize}
+            \item hierarchical: False
+            \begin{itemize}
+                \item LoD\@: 1
+                \begin{itemize}
+                    \item Multilabel classification: 5 labels
+                \end{itemize}
+                \item LoD\@: 2
+                \begin{itemize}
+                    \item Multilabel classification: 9 labels
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item geometric features
+        \begin{itemize}
+            \item geometric attributes
+            \begin{itemize}
+                \item $degree_{facets}$
+                \item $areas_{facets}$
+                \item $facets\_centroid\_distances_{facets}$
+                \item $angles\_btw\_normals_{facets}$
+                \item $nomals\_with\_relations_{facets}$
+                \item $areas_{projected\_facets}$
+                \item $length_{projected\_edges}$
+            \end{itemize}
+            \item statistic
+            \begin{itemize}
+                \item statistics:
+                \begin{itemize}
+                    \item max
+                    \item min
+                    \item median
+                    \item mean
+                    \item std deviation
+                \end{itemize}
+                \item histogram
+                \begin{itemize}
+                    \item resolution
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+        \item altimetric_features
+        \begin{itemize}
+            \item statistics:
+            \begin{itemize}
+                \item max
+                \item min
+                \item median
+                \item mean
+                \item std deviation
+            \end{itemize}
+            \item histogram
+            \begin{itemize}
+                \item resolution
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+
     \subsection{Features visualization}
 
     I tried visualizing features by reducing their dimensions using PCA.\@ In Figure~\ref{fig::pca_viz}, we can see in snapshots what looks like structures in data.
