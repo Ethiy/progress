@@ -1,0 +1,172 @@
+\documentclass[tikz, border=7pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,shadows,arrows}
+
+\usepackage[T1]{fontenc}
+
+\begin{document}
+    \begin{tikzpicture}[
+        fork/.style={rectangle, draw=none, rounded corners=1mm, fill=blue, drop shadow,
+            text centered, anchor=north, text=white},
+        value/.style={rectangle, draw=none, rounded corners=1mm, fill=orange, drop shadow,
+            text centered, anchor=north, text=white},
+        leaf/.style={rectangle, draw=none, fill=red, rounded corners=1mm, drop shadow,
+            text centered, anchor=north, text=white},
+        growth parent anchor=south,
+        level 2/.style={sibling distance=35cm},
+        level 4/.style={sibling distance=20cm},
+        level 6/.style={sibling distance=10cm, level distance=2cm},
+        level 8/.style={sibling distance=5cm, level distance=2cm},
+        level 10/.style={sibling distance=3cm, level distance=6cm}
+    ]
+    \node (entry) [value] {labels} [->]
+        child{
+        node (depth) [fork] {depth}
+        child{
+            node (depth_0) [value] {$0$}
+            child{
+                node (bin_class) [fork] {Binary Classification}
+                child{
+                    node (qual) [leaf] {Qualifiable | Unqualifiable}
+                }
+            }
+        }
+        child{
+            node (depth_1) [value] {$1$}
+            child{
+                node (hier1) [fork] {Hierarchical}
+                child{
+                    node (1hier) [value] {True}
+                    child{
+                        node (1hierlod) [fork] {LoD}
+                        child{
+                            node (1hierlod1) [value] {$1$}
+                            child{
+                                node (1hiermulticl1) [fork] {Multiclass classification}
+                                child{
+                                    node (1hiererrscl1) [leaf] {No Error | Building Error}
+                                }
+                            }
+                        }
+                        child{
+                            node (1hierlod2) [value] {$2$}
+                            child{
+                                node (1hiermulticl2) [fork] {Multiclass classification}
+                                child{
+                                    node (1hiererrscl2) [leaf] {No Error | Building Error | Facet Error}
+                                }
+                            }
+                        }
+                    }
+                }
+                child{
+                    node (1nonhier) [value] {False}
+                    child{
+                        node (1nonhierlod) [fork] {LoD}
+                        child{
+                            node (1nonhierlod1) [value] {$1$}
+                            child{
+                                node (1nonhiermultil1) [fork] {Multilabel classification}
+                                child{
+                                    node (1nonhiererrsl1) [leaf] {No Error \& Building Error}
+                                }
+                            }
+                        }
+                        child{
+                            node (1nonhierlod2) [value] {$2$}
+                            child{
+                                node (1nonhiermultil2) [fork] {Multilabel classification}
+                                child{
+                                    node (1nonhiererrsl2) [leaf] {No Error \& Building Error \& Facet Error}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        child{
+            node (depth_2) [value] {$2$}
+            child{
+                node (hier2) [fork] {Hierarchical}
+                child{
+                    node (2hier) [value] {True}
+                    child{
+                        node (2hierlod) [fork] {LoD}
+                        child{
+                            node (2hierlod1) [value] {$1$}
+                            child{
+                                node (2hiermulticl1) [fork] {Multiclass classification}
+                                child{
+                                    node (2hiererrscl1) [leaf] {No Error}
+                                }
+                                child{
+                                    node (2hierbulcl1) [value] {Building Error}
+                                    child{
+                                        node (mlbulhier1) [fork] {Multilabel classification}
+                                        child{
+                                            node (2hierbulcl1height) [leaf] {Height \& Footprint Error}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        child{
+                            node (2hierlod2) [value] {$2$}
+                            child{
+                                node (2hiermulticl2) [fork] {Multiclass classification}
+                                child{
+                                    node (2hiererrscl2) [leaf] {No Error}
+                                }
+                                child{
+                                    node (2hierbulcl2) [value] {Building Error}
+                                    child{
+                                        node (mlbulhier) [fork] {Multilabel classification}
+                                        child{
+                                            node (2hierbulcl2height) [leaf] {Height \& Footprint Error}
+                                        }
+                                    }
+                                }
+                                child{
+                                    node (2hierfaccl2) [value] {Facet Error}
+                                    child{
+                                        node (mlfachier) [fork] {Multilabel classification}
+                                        child{
+                                            node (2hierfaccl2over) [leaf] {Over segmentation \& Under Segmentation Error}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                child{
+                    node (2nonhier) [value] {False}
+                    child{
+                        node (2nonhierlod) [fork] {LoD}
+                        child{
+                            node (2nonhierlod1) [value] {$1$}
+                            child{
+                                node (2nonhiermultil1) [fork] {Multilabel classification}
+                                child{
+                                    node (2nonhiererrsl1) [leaf] {No \& Building Error}
+                                }
+                            }
+                        }
+                        child{
+                            node (2nonhierlod2) [value] {$2$}
+                            child{
+                                node (2nonhiermultil2) [fork] {Multilabel classification}
+                                child{
+                                    node (2nonhiererrsl2) [leaf] {No \& Building \& Facet Error}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        };
+    \end{tikzpicture}
+\end{document}
