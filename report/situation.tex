@@ -33,17 +33,16 @@
         \path (camera.south |- pc) node (lidar) [sensor] {\textbf{LI}ght \textbf{D}etection \textbf{A}nd \textbf{R}anging};
         \path (um.north)+(0,6) node (human) [sensor] {Human Operator};
 
-        \path[draw, ->] (camera.east) -- node [above] {Aquired Signal} (oi.west);
-        \path[draw, ->] (oi.355) -| ($(oi.355) ! .5 ! (pc.165)$) node [left, text width=2.5em, align=center] {Photogrammetry} |- (pc.165);
-        \path[draw, ->, red, dash dot] (human.165) -| node [above right] {Feature points intake} ($(human.165) ! .7 ! ($(oi.355) ! .5 ! (pc.165)$)$) |- ($(oi.355) ! .5 ! (pc.165)$);
-        \path[draw, ->] (oi.5) node [above right, text width=6em, align=center] {Primitive extraction} -| 
-         ($(oi.5) ! .8 ! (sr.170)$) |- (sr.170);
-        \path[draw, ->, red, dash dot] (human.180) -| ($(human.180) ! .7 ! ($(oi.5) ! .5 ! (sr.170)$)$) node [right, text width=3em, align=center] {Edge intake} |- ($(oi.5) ! .8 ! (sr.170)$);
-        \path[draw, ->] (lidar.east) -- node [above] {Acquired Signal} (pc.west);
+        \path[draw, ->] (camera.east) -- node [align=center] {Aquired\\ Signal} (oi.west);
+        \path[draw, ->] (oi.355) -| ($(oi.355) ! .5 ! (pc.165)$) node [left, text width=4em, align=center] {Photo-\\gram-\\metry} |- (pc.165);
+        \path[draw, ->, red, dash dot] (human.165) -| ($(human.165) ! .7 ! ($(oi.355) ! .5 ! (pc.165)$)$) |- node [above left, text width=6em, align=center] {Feature\\ Points Intake} ($(oi.355) ! .5 ! (pc.165)$);
+        \path[draw, ->] (oi.5)  node [right=2cm, text width=6em, align=center] {Primitive Extraction} -| ($(oi.5) ! .8 ! (sr.170)$) |- (sr.170);
+        \path[draw, ->, red, dash dot] (human.180) -| ($(human.180) ! .7 ! ($(oi.5) ! .5 ! (sr.170)$)$) node [right, text width=3em, align=center] {Edge Intake} |- ($(oi.5) ! .8 ! (sr.170)$);
+        \path[draw, ->] (lidar.east) -- node [align=center] {Aquired\\ Signal} (pc.west);
         \path[draw, ->] (pc.east) -- node [below, text width=6em, align=center] {Surface Recontruction} (sr.west);
         \path[draw, ->] (sr.east) -- node [below, text width=6em, align=center] {Building Modeling} (um.west);
-        \path[draw, ->, red, dash dot] (human.190) -| ($(sr) ! .5 ! (um)$);
-        \path[draw, ->] (um.east) -- node [below, text width=7em, align=center] {Post-processing \& Corrections} (om.west);
+        \path[draw, ->, red, dash dot] (human.190) -| node [below=2cm, text width=7em, align=center] {Topology\\Intake} ($(sr) ! .5 ! (um)$);
+        \path[draw, ->] (um.east) -- node [below, text width=7em, align=center] {Post-processing} (om.west);
         \path[draw, ->, red, dash dot] (human.5) -| ($(um) ! .5 ! (om)$);
 
         \path ($(human) !.5! (om)$) node (here) [circle, fill=red, text width=1cm, align=center, text=white] {\textbf{We are here}};
