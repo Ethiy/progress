@@ -1,4 +1,4 @@
-\documentclass[tikz]{standalone}
+\documentclass[tikz, border=7pt]{standalone}
 
 \usepackage{tikz}
 
@@ -17,147 +17,156 @@
     \node[circle, fill, color=green, minimum size=1cm, anchor=east] at (-15, 1) (5) {};
     \node[circle, fill, color=blue, minimum size=.75cm, anchor=east] at (-15, -1) (6) {};
     \draw[decorate,decoration={brace,amplitude=4pt}] (-14.8, 3.6) -- (-14.8, -1.4) node[midway, right, xshift=0.1cm, yshift=0pt]{Observed causes.};
-    \path[mindmap, concept color=red, text=white]
-      node[concept, minimum size=5cm]{\LARGE\textsc{Errors}}[clockwise from=0]
-      child[concept color=orange, text=black, grow=90]
+    \path[mindmap, concept color=black!50, text=white]
+      node[concept, minimum size=5cm]{\LARGE\textsc{Input}}[clockwise from=0]
+      child[concept color=orange, text=black, grow=180]
       {
-        node[concept]{\textsc{Unqualified Building Error}}[clockwise from=0]
-        child[concept color=purple!50, text=black, grow=0]
-        {
-          node[concept]{Half Building}[clockwise from=0]
-          child[concept color=blue, text=white, grow=0]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=60]
-        {
-          node[concept]{Changed Building}[clockwise from=0]
-          child[concept color=blue, text=white, grow=60]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=120]
-        {
-          node[concept]{Occlusion}
-          child[concept color=blue, text=white, grow=120]
-          {
-            node[concept]{Vegetation}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=180]
-        {
-          node[concept]{non interpretable}
-          child[concept color=blue, text=white, grow=180]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
+      	node[concept]{\textsc{Unqualified Building Error}}[clockwise from=180]
+      	child[concept color=purple!50, text=black, grow=270]
+      	{
+      		node[concept]{Half Building}
+      		child[concept color=blue, text=white, grow=270]
+      		{
+      			node[concept]{Reconstruction Shortfall}
+      		}
+      	}
+      	child[concept color=purple!50, text=black, grow=60]
+      	{
+      		node[concept]{Changed Building}[clockwise from=0]
+      		child[concept color=blue, text=white, grow=60]
+      		{
+      			node[concept]{Reconstruction Shortfall}
+      		}
+      	}
+      	child[concept color=purple!50, text=black, grow=120]
+      	{
+      		node[concept]{Occlusion}
+      		child[concept color=blue, text=white, grow=120]
+      		{
+      			node[concept]{Vegetation}
+      		}
+      	}
+      	child[concept color=purple!50, text=black, grow=180]
+      	{
+      		node[concept]{non interpretable}
+      		child[concept color=blue, text=white, grow=180]
+      		{
+      			node[concept]{Reconstruction Shortfall}
+      		}
+      	}
       }
-      child[concept color=orange, text=black, grow=330]
-      {
-        node[concept]{\textsc{Facet Error}}
-        child[concept color=purple!50, text=black, grow=60]
-        {
-          node[concept]{Over Segmentation}
-          child[concept color=green!80!black, text=white, grow=60]
-          {
-            node[concept]{Micro structures}
-            child[concept color=blue, text=white, grow=30]
-            {
-              node[concept]{Chim-neys}
-            }
-          }
-        }
-        child[concept color=purple!50, text=black, grow=0]
-        {
-          node[concept]{Under Segmentation}
-          child[concept color=blue, text=white, grow=0]
-          {
-            node[concept]{Slope differences larger than Noise}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=300]
-        {
-          node[concept]{Inprecise Segmentation}
-          child[concept color=green!80!black, text=white, grow=300]
-          {
-            node[concept]{Blurred DSM edges}
-            child[concept color=blue, text=white, grow=0]
-            {
-              node[concept]{Correlation Regularization}
-            }
-          }
-        }
-        child[concept color=purple!50, text=black, grow=240]
-        {
-          node[concept]{Slope}
-          child[concept color=blue, text=white, grow=240]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
-      }
-      child[concept color=orange, text=black, grow=210]
-      {
-        node[concept]{\textsc{Building Error}}
-        child[concept color=purple!50, text=black, grow=300]
-        {
-          node[concept]{Over Segmanetation}
-          child[concept color=blue, text=white, grow=300]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=240]
-        {
-          node[concept]{Under Segmentation}
-          child[concept color=blue, text=white, grow=240]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
-        child[concept color=purple!50, text=black, grow=180]
-        {
-          node[concept]{Footprint}
-          child[concept color=green!80!black, text=white, grow=120]
-          {
-            node[concept]{Blurred DSM edges}
-            child[concept color=blue, text=white, grow=150]
-            {
-              node[concept]{Correlation Regularization}
-            }
-          }
-          child[concept color=green!80!black, text=white, grow=210]
-          {
-            node[concept]{Building Adjacency}
-            child[concept color=green, text=black, grow=240]
-            {
-              node[concept]{Corner Adjacency}
-              child[concept color=blue, text=white, grow=210]
-              {
-                node[concept]{Vegetation}
-              }
-              child[concept color=blue, text=white, grow=270]
-              {
-                node[concept]{Building}
-              }
-            }
-            child[concept color=blue, text=white, grow=180]
-            {
-              node[concept]{Lateral Adjacency}
-            }
-          }
-        }
-        child[concept color=purple!50, text=black, grow=120]
-        {
-          node[concept]{Height}
-          child[concept color=blue, text=white, grow=120]
-          {
-            node[concept]{Reconstruction Shortfall}
-          }
-        }
+      child[concept color=blue, text=black, grow=0]{
+      	node[concept]{\textsc{Qualifiable Building}}
+      	child[concept color=green, grow=270]{
+      		node[concept]{\textsc{None}}
+      	}
+      	child[concept color=red, grow=0]{
+      		node[concept]{\large\textsc{Errors}}
+      		child[concept color=orange, text=black, grow=90]
+      		{
+      			node[concept]{\textsc{Facet Error}}
+      			child[concept color=purple!50, text=black, grow=150]
+      			{
+      				node[concept]{Over Segmentation}
+      				child[concept color=green!80!black, text=white, grow=150]
+      				{
+      					node[concept]{Micro structures}
+      					child[concept color=blue, text=white, grow=90]
+      					{
+      						node[concept]{Chim-neys}
+      					}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=90]
+      			{
+      				node[concept]{Under Segmentation}
+      				child[concept color=blue, text=white, grow=90]
+      				{
+      					node[concept]{Slope differences larger than Noise}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=30]
+      			{
+      				node[concept]{Inprecise Segmentation}
+      				child[concept color=green!80!black, text=white, grow=30]
+      				{
+      					node[concept]{Blurred DSM edges}
+      					child[concept color=blue, text=white, grow=30]
+      					{
+      						node[concept]{Correlation Regularization}
+      					}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=330]
+      			{
+      				node[concept]{Slope}
+      				child[concept color=blue, text=white, grow=0]
+      				{
+      					node[concept]{Reconstruction Shortfall}
+      				}
+      			}
+      		}
+      		child[concept color=orange, text=black, grow=300]
+      		{
+      			node[concept]{\textsc{Building Error}}
+      			child[concept color=purple!50, text=black, grow=30]
+      			{
+      				node[concept]{Over Segmanetation}
+      				child[concept color=blue, text=white, grow=30]
+      				{
+      					node[concept]{Reconstruction Shortfall}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=330]
+      			{
+      				node[concept]{Under Segmentation}
+      				child[concept color=blue, text=white, grow=330]
+      				{
+      					node[concept]{Reconstruction Shortfall}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=270]
+      			{
+      				node[concept]{Footprint}
+      				child[concept color=green!80!black, text=white, grow=300]
+      				{
+      					node[concept]{Blurred DSM edges}
+      					child[concept color=blue, text=white, grow=300]
+      					{
+      						node[concept]{Correlation Regularization}
+      					}
+      				}
+      				child[concept color=green!80!black, text=white, grow=240]
+      				{
+      					node[concept]{Building Adjacency}
+      					child[concept color=green, text=black, grow=270]
+      					{
+      						node[concept]{Corner Adjacency}
+      						child[concept color=blue, text=white, grow=300]
+      						{
+      							node[concept]{Vegetation}
+      						}
+      						child[concept color=blue, text=white, grow=240]
+      						{
+      							node[concept]{Building}
+      						}
+      					}
+      					child[concept color=blue, text=white, grow=210]
+      					{
+      						node[concept]{Lateral Adjacency}
+      					}
+      				}
+      			}
+      			child[concept color=purple!50, text=black, grow=210]
+      			{
+      				node[concept]{Height}
+      				child[concept color=blue, text=white, grow=240]
+      				{
+      					node[concept]{Reconstruction Shortfall}
+      				}
+      			}
+      		}
+      	}
       };
   \end{tikzpicture}
 \end{document}
