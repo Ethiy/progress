@@ -7,74 +7,14 @@
 
     Based on the error grammar established earlier, a multitude of supervised classification problems can be studied:
 
+	\begin{sidewaysfigure}[p]
+		\begin{center}
+			\includestandalone[mode=buildnew, width=\textwidth]{classification_problem}
+			\caption{\label{fig::classif_prb}}
+		\end{center}
+	\end{sidewaysfigure}
 
     The features also can be modularly assembled into one big feature vector that is fed to the classifier.
-
-    \begin{itemize}
-        \item depth: 0
-        \begin{itemize}
-            \item Binary Classification: Qualifiable, Unqualifiable
-        \end{itemize}
-        \item depth: 1
-        \begin{itemize}
-            \item hierarchical: True
-            \begin{itemize}
-                \item LoD\@: 1
-                \begin{itemize}
-                    \item Multiclass\footnote{What is multiclass?} classification: No errors, Building errors
-                \end{itemize}
-                \item LoD\@: 2
-                \begin{itemize}
-                    \item Multiclass classification: No errors, Building errors, Facet errors.
-                \end{itemize}
-            \end{itemize}
-            \item hierarchical: False
-            \begin{itemize}
-                \item LoD\@: 1
-                \begin{itemize}
-                    \item Multilabel\footnote{what is multilabel?} classification: No errors, Building errors
-                \end{itemize}
-                \item LoD\@: 2
-                \begin{itemize}
-                    \item Multilabel classification: No errors, Building errors, Facet errors.
-                \end{itemize}
-            \end{itemize}
-        \end{itemize}
-        \item depth: 2
-        \begin{itemize}
-            \item hierarchical: True
-            \begin{itemize}
-                \item LoD\@: 1
-                \begin{itemize}
-                    \item Multiclass classification: No errors, Building errors
-                    \begin{itemize}
-                        \item Error: No errors
-                        \item Error: Building errors $\longrightarrow$ Multilabel classification
-                    \end{itemize}
-                \end{itemize}
-                \item LoD\@: 2
-                \begin{itemize}
-                    \item Multiclass classification: No errors, Building errors, Facet errors.
-                    \begin{itemize}
-                        \item Error: No errors
-                        \item Error: Building errors $\longrightarrow$ Multilabel classification
-                        \item Error: Facet errors $\longrightarrow$ Multilabel classification
-                    \end{itemize}
-                \end{itemize}
-            \end{itemize}
-            \item hierarchical: False
-            \begin{itemize}
-                \item LoD\@: 1
-                \begin{itemize}
-                    \item Multilabel classification: 5 labels
-                \end{itemize}
-                \item LoD\@: 2
-                \begin{itemize}
-                    \item Multilabel classification: 9 labels
-                \end{itemize}
-            \end{itemize}
-        \end{itemize}
-    \end{itemize}
 
     \begin{itemize}
         \item geometric features
@@ -105,7 +45,7 @@
                 \end{itemize}
             \end{itemize}
         \end{itemize}
-        \item altimetric_features
+        \item altimetric features
         \begin{itemize}
             \item statistics:
             \begin{itemize}
